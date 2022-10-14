@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CeloProvider } from '@celo/react-celo';
+import { BrowserRouter } from 'react-router-dom';
 import '@celo/react-celo/lib/styles.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
- 
+  
+  <BrowserRouter>
     <CeloProvider
       dapp={{
         name: 'My awesome dApp',
@@ -37,7 +39,7 @@ root.render(
     >
     <App />
     </CeloProvider>
-
+    </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
