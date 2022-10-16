@@ -5,6 +5,8 @@ import { Button, FormGroup } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { QrModal } from '../components/QrModal';
+//celo
+import { useCelo } from '@celo/react-celo';
 
 
 const style = {
@@ -25,6 +27,22 @@ export const InfoCampain = () => {
     const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+
+  //use celo hook must always be inside the Celoprovider tree
+
+ const { connect, address, destroy, performActions } = useCelo();
+
+
+ const { getConnectedKit } = useCelo();
+
+  async function transfer() {
+  const kit = await getConnectedKit();
+  const cUSD = await kit.contracts.getStableToken();
+  await cUSD.transfer('0x1373f97256213a34B9f7bebb0DfA0c0843f81aAF', 1).sendAndWaitForReceipt();
+}
+
+
 
   return (
 
@@ -85,6 +103,25 @@ export const InfoCampain = () => {
             >
               Quiero Donar!
             </Button>
+
+            {address ? (
+            <div>Connected to {address}</div>
+            ) : (
+            " ")}
+
+            <Button onClick={()=> address ? destroy () : connect()} type="button"
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}>
+            {address? "disconnect" :"Connect"} 
+            </Button>
+
+            {address ? (
+              <Button onClick={transfer} type="button"
+              variant="contained" >Transfer</Button>
+            ) : (
+            " " )}
+
+
 
             </FormGroup>
             <Modal

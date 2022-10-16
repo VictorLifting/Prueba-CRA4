@@ -81,15 +81,16 @@ async function transfer() {
 " "
 )}
 
-
 <button onClick={()=> address ? destroy () : connect()}>
 {address? "disconnect" :"Connect"} 
-
 </button>
 
 
-<button onClick={transfer}>Transfer</button>
-
+{address ? (
+  <button onClick={transfer}>Transfer</button>
+) : (
+" "
+)}
 
 
 
