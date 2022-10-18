@@ -1,8 +1,7 @@
 
 import { useCelo } from '@celo/react-celo';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { MiniContractKit } from '@celo/contractkit/lib/mini-kit';
-
 
 import { Header } from "./components/Header";
 import Register from "./components/Register";
@@ -19,9 +18,52 @@ import { InfoCampain } from "./views/InfoCampain";
 import Footer from "./components/Footer";
 import HelpCenter from "./views/HelpCenter";
 
+//firebase
+import db from './firebase/firebasConfig';
+import { collection, getDocs, addDoc } from "firebase/firestore";
+import { useEffect } from 'react';
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+
 
 
 function App() {
+
+  // //firebase user state
+   const auth = getAuth();
+
+
+
+  //onAuthStateChanged()
+
+   const [usuario, setUsuario] = useState(null);
+
+  useEffect((() => {
+    onAuthStateChanged(auth,(user) => {
+      setUsuario(user);
+         
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+        console.log("estas logeado con ",uid)
+        
+        
+      } else {
+        // User is signed out
+        console.log("no estas logeado")
+        // ...
+      }
+      console.log(usuario)
+    })
+
+
+  }), [])
+
+
+
   //use celo hook must always be inside the Celoprovider tree
 
  const { connect, address, destroy, performActions } = useCelo();
@@ -42,6 +84,40 @@ function App() {
 //    [second],
 //  )
 
+  
+useEffect(() => {
+
+  const obtenerDatos = async() =>{
+    const datos = await getDocs(collection(db,'usuarios'));
+    console.log(datos.docs[0].data().first)
+
+  }
+  obtenerDatos();
+
+}, [])
+
+
+const agregarDatos = async()=>{
+
+  try {
+    const docRef = await addDoc(collection(db, "usuarios"), {
+      first: "Victor",
+      last: "Espejos",
+      born: 1815
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+
+}
+
+
+
+
+
+
+
 
 const { getConnectedKit } = useCelo();
 
@@ -58,12 +134,19 @@ async function transfer() {
 
   return (
 <>
-<Header/>
+<Header usuario={usuario}/>
   <Routes>
   
   <Route path="/home" element={<Home/>}/>
   <Route path="/register" element={<Register/>}/>
-  <Route path="/login" element={<SignIn/>}/>
+  <Route path="/login" element={
+
+    usuario ? <Home/> : <SignIn setUsuario={setUsuario} />
+  
+    
+
+
+  }/>
   <Route path="/categories" element={<Categories/>}/>
   <Route path="/campains" element={<Campains/>}/>
   <Route path="/create" element={<Create/>}/>
@@ -92,9 +175,9 @@ async function transfer() {
 " "
 )}
 
+{usuario ? <div>cerrar sesión </div> : <div>sin ingresar </div>}
 
-
-
+<button onClick={agregarDatos}> agregarDatos</button>
 
 </>
   );

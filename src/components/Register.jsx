@@ -10,6 +10,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+//firebase
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -26,14 +30,57 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Register() {
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    if(data.get('password')!==data.get('passwordConfirm')){
+      console.log("contraseñas no son iguales")
+      return
+    }
+  
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
+    createUser(data.get('email'), data.get('password'));
   };
+
+
+  const auth = getAuth();
+
+  const createUser =(email, password)=>{
+
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log (user)
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+  
+  
+      // ..
+      console.log(errorCode)
+      console.log(errorMessage)
+    });
+
+  }
+
+  // const autenticacion = (e) => {
+
+  //   e.preventDefault();
+    
+  //   const correo = e.target.email.value;
+  //   const password = e.target.password.value;
+
+  //   crearUsuario(correo, password);
+
+  // }
 
   return (
     <ThemeProvider theme={theme}>
@@ -55,7 +102,7 @@ export default function Register() {
            Regístrate
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
+            {/* <TextField
               margin="normal"
               required
               fullWidth
@@ -64,7 +111,7 @@ export default function Register() {
               name="name"
               autoComplete="name"
               autoFocus
-            />
+            /> */}
             <TextField
               margin="normal"
               required
@@ -85,16 +132,16 @@ export default function Register() {
               id="password"
               autoComplete="current-password"
             />
-            <TextField
+             <TextField
               margin="normal"
               required
               fullWidth
-              name="password"
+              name="passwordConfirm"
               label="Confirmar contraseña"
               type="password"
-              id="password"
+              id="passwordConfirm"
               autoComplete="current-password"
-            />                      
+            />                       
 
             <Button
               type="submit"

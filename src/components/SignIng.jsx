@@ -11,6 +11,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+//firebase
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -26,7 +29,8 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function SignIn(props) {
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -34,7 +38,33 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    iniciarSesion(data.get('email'),data.get('password'));
   };
+
+
+  const auth = getAuth();
+
+  const iniciarSesion = (correo, password) => {
+
+      signInWithEmailAndPassword(auth, correo, password).then((usuarioFirebase) => {
+
+        
+        const user = usuarioFirebase.user;
+        console.log (user)
+        props.setUsuario(usuarioFirebase)
+        
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+  
+  
+      // ..
+      console.log(errorCode)
+      console.log(errorMessage)
+    });
+
+  }
+
 
   return (
     <ThemeProvider theme={theme}>

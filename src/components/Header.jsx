@@ -3,7 +3,26 @@ import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import { Link as RouterLink} from "react-router-dom";
 
-export const Header = () => {
+//firebase
+import { getAuth, signOut } from "firebase/auth";
+
+export const Header = (props) => {
+  
+  const auth = getAuth();
+
+  const cerrarSesion = () => {
+
+    signOut(auth).then(() => {
+      console.log( "Sign-out successful.");
+    
+  }).catch((error) => {
+    // An error happened.
+    console.log(error)
+    
+  });};
+
+  console.log( "logeado desde el header con: ", props.usuario);
+ 
 
   return (
     <>
@@ -45,9 +64,29 @@ export const Header = () => {
         </Box>
 
 
-        <Link component={RouterLink} to="/login" underline="none" color="inherit" marginLeft={5}>
+
+        {props.usuario ? 
+        <Button 
+            size="small"
+            variant="contained"	
+            onClick={cerrarSesion}
+          >
+			  	Cerrar sesión
+		  	</Button>
+          :
+        <Link 
+        component={RouterLink} 
+        to="/login" underline="none" 
+        color="inherit" 
+        marginLeft={5}>
         {'Iniciar sesión'}
         </Link>
+        
+        }
+
+        
+
+
 
 
 
