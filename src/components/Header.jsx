@@ -64,6 +64,19 @@ export const Header = (props) => {
         </Box>
 
 
+        <Box          
+         sx={{
+            display: 'flex',
+            alignItems: 'center',
+          }}>
+
+        <Link component={RouterLink} to="/create" underline="none" color="inherit" marginLeft={5}>
+        {'Crear campaña'}
+        </Link>
+
+        <Link component={RouterLink} to="/helpcenter" underline="none" color="inherit" marginLeft={5} marginRight={5}>
+        {'Donar'}
+        </Link>
 
         {props.usuario ? 
         <Button 
@@ -85,7 +98,7 @@ export const Header = (props) => {
         }
 
         
-
+</Box>
 
 
 

@@ -1,10 +1,12 @@
 import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Button, FormGroup } from '@mui/material';
+import { Button, FormControl, FormGroup, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
-import { QrModal } from '../components/QrModal';
+import { ConnectWaModal } from '../components/ConnectWaModal';
+import { ThanksModal } from '../components/ThanksModal';
+
 //celo
 import { useCelo } from '@celo/react-celo';
 
@@ -24,9 +26,18 @@ const style = {
 
 export const InfoCampain = () => {
 
+  //modal conectar
     const [open, setOpen] = useState(false);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+
+//modal gracias  
+  const [open2, setOpen2] = useState(false);
+
+  const handleOpen2 = () => setOpen2(true);
+  const handleClose2 = () => setOpen2(false);
 
 
   //use celo hook must always be inside the Celoprovider tree
@@ -95,32 +106,66 @@ export const InfoCampain = () => {
 
             <FormControlLabel control={<Checkbox defaultUnChecked />} label="Acepto términos y condiciones" />
 
-            <Button 
+            {address ? (
+            " "):(<Button 
               onClick={handleOpen}
               type="button"
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
               Quiero Donar!
-            </Button>
+            </Button>)}
 
             {address ? (
-            <div>Connected to {address}</div>
+              <Box sx={{mb:2, mt:2}}>
+              Conectado a: {address}
+              </Box>
             ) : (
             " ")}
 
+        {address ? (
+        <FormControl fullWidth sx={{ m: 1 }}>
+          <InputLabel htmlFor="outlined-adornment-amount">Ingesa el monto a donar es CUSD</InputLabel>
+          <OutlinedInput
+            type="number"
+            id="outlined-adornment-amount"
+            //value={values.amount}
+           // onChange={handleChange('amount')}
+            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            label="Ingesa el monto a donar es CUSD"
+          />
+        </FormControl>)
+        : (
+          " ")}
+
+
+
+        <Box
+        component="div"
+          sx={{
+          display: "flex",
+          justifyContent:"space-between",
+          alignContent:"center",
+        }}
+      >
+
+        {address? 
             <Button onClick={()=> address ? destroy () : connect()} type="button"
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}>
-            {address? "disconnect" :"Connect"} 
+              variant="outlined"
+              sx={{ mt: 3, mb: 2, width:"48%"}}>
+                Desconectar
             </Button>
+               :" "} 
 
             {address ? (
-              <Button onClick={transfer} type="button"
-              variant="contained" >Transfer</Button>
+              // <Button onClick={transfer} type="button"
+              <Button onClick={handleOpen2} type="button"
+              variant="contained" sx={{ mt: 3, mb: 2, width:"48%" }}>Donar</Button>
             ) : (
             " " )}
 
+        
+      </Box>
 
 
             </FormGroup>
@@ -131,7 +176,17 @@ export const InfoCampain = () => {
                 aria-describedby="modal-modal-description"
             > 
             <Box sx={style}>
-            <QrModal/>
+            <ConnectWaModal/>
+            </Box>  
+            </Modal>
+            <Modal
+                open={open2}
+                onClose={handleClose2}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            > 
+            <Box sx={style}>
+            <ThanksModal/>
             </Box>  
             </Modal>
         </Box>
