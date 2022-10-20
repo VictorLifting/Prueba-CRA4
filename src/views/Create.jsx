@@ -14,19 +14,19 @@ import InputLabel from '@mui/material/InputLabel';
 const categories = [
     {
       value: 'USD',
-      label: '$',
+      label: 'Educación',
     },
     {
       value: 'EUR',
-      label: '€',
+      label: 'Salud',
     },
     {
       value: 'BTC',
-      label: '฿',
+      label: 'Animales',
     },
     {
       value: 'JPY',
-      label: '¥',
+      label: 'Familiar',
     },
   ];
 
@@ -101,14 +101,14 @@ export const Create = () => {
         </FormControl>
 
         <FormControl fullWidth sx={{ m: 1 }}>
-          <InputLabel htmlFor="outlined-adornment-amount">Meta</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-amount"></InputLabel>
           <OutlinedInput
             type="file"
             id="outlined-adornment-amount"
             //value={values.amount}
            // onChange={handleChange('amount')}
 
-            label="Meta"
+            label="Seleccionar fotos"
           />
         </FormControl>
 

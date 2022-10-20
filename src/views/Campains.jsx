@@ -43,7 +43,7 @@ const campains = [
 export const Campains = () => {
   return (
 
-    <Container component="section" sx={{ mt: 8, mb: 4 }}>
+    <Container component="section" sx={{ mt: 8, mb: 10}}>
     <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
     {campains.map((campain) => (
 

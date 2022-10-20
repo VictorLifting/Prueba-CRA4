@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-
-
+import Link from '@mui/material/Link';
+import { Link as RouterLink} from "react-router-dom";
 
 export const Banner2 = () => {
   return (
@@ -22,6 +22,9 @@ export const Banner2 = () => {
     
     }
     }>
+
+        <Link component={RouterLink} to="/create" underline="none" color="inherit" marginRight={5}>
+
         <Button 
         type="button"
         variant="contained"
@@ -29,7 +32,7 @@ export const Banner2 = () => {
         >
         Crear campaña
         </Button>
-
+        </Link>
         <Button
         type="button"
         variant="outlined"

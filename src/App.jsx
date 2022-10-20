@@ -158,7 +158,7 @@ async function transfer() {
   
 <Footer/>
 
- {address ? (
+ {/* {address ? (
 <div>Connected to {address}</div>
 ) : (
 " "
@@ -177,7 +177,7 @@ async function transfer() {
 
 {usuario ? <div>cerrar sesión </div> : <div>sin ingresar </div>}
 
-<button onClick={agregarDatos}> agregarDatos</button>
+<button onClick={agregarDatos}> agregarDatos</button> */}
 
 </>
   );

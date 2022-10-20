@@ -8,11 +8,12 @@ export const CardCampain = () => {
 
     <Box sx={{ 
         mt: 8,
-        height:350,
+        height:420,
         width: 280,
         borderRadius:4,
         boxShadow:2,
-        marginLeft:4,
+        marginLeft:9,
+        
         }}>
 
     <Box sx={{ 
@@ -27,6 +28,11 @@ export const CardCampain = () => {
         borderRadius:4,
         }}>
     </Box>
+
+    <Box sx={{ 
+       padding:1
+        
+        }}>
 
     <Typography
                 component="h3"
@@ -48,10 +54,40 @@ export const CardCampain = () => {
                 <div className="imageMarked" />
               </Typography>
 
+              <Box sx={{
+                backgroundColor:"#F2F2F2",
+                height:15,
+                position:'relative',
+                mt:2,
+                mx:1,
+                mb:1
+              }}>
+                <Box sx={{
+                backgroundColor:"#C58ADE",
+                height:15,
+                width:"30%",
+                position:'relative'
+              }}>
+          </Box>
+
+
+         
+
+        </Box>
+        <Typography
+                component="h5"
+                variant="inherit"
+                color="inherit"
+                className="imageTitle"
+              >
+                 Recaudado: $200.000/2.000.000
+                
+              </Typography> 
+
               <ButtonBase>Ver mas {'>'} </ButtonBase>
 
 
-
+              </Box>
                
 
     </Box>

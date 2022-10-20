@@ -74,7 +74,7 @@ export const Header = (props) => {
         {'Crear campaña'}
         </Link>
 
-        <Link component={RouterLink} to="/helpcenter" underline="none" color="inherit" marginLeft={5} marginRight={5}>
+        <Link component={RouterLink} to="/categories" underline="none" color="inherit" marginLeft={5} marginRight={5}>
         {'Donar'}
         </Link>
 

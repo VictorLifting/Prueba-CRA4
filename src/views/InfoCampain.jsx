@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Button, FormControl, FormGroup, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
+import { Button, FormControl, FormGroup, InputAdornment, InputLabel, Link, OutlinedInput } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { ConnectWaModal } from '../components/ConnectWaModal';
@@ -9,6 +9,7 @@ import { ThanksModal } from '../components/ThanksModal';
 
 //celo
 import { useCelo } from '@celo/react-celo';
+
 
 
 const style = {
@@ -51,6 +52,7 @@ export const InfoCampain = () => {
   const kit = await getConnectedKit();
   const cUSD = await kit.contracts.getStableToken();
   await cUSD.transfer('0x1373f97256213a34B9f7bebb0DfA0c0843f81aAF', 1).sendAndWaitForReceipt();
+  handleOpen2()
 }
 
 
@@ -77,7 +79,17 @@ export const InfoCampain = () => {
             justifyContent: 'space-between'
             }}> 
 
-            <p>Creado por: Juan Pérez</p> <p>Ver donaciones</p> </Box>
+            <p>Creado por: Juan Pérez</p> 
+
+            <Link href="https://explorer.celo.org/mainnet/address/0x1373f97256213a34B9f7bebb0DfA0c0843f81aAF/token-transfers"
+            underline="none" 
+            color="inherit"
+            target={"_blank"}>
+              {"Ver donaciones" } 
+            
+            </Link> 
+
+            </Box>
             <p>Creada el 20 de junio de 2022</p>
 
         </Box>
@@ -98,13 +110,29 @@ export const InfoCampain = () => {
         <Box>
         <strong>Meta:</strong>
 
+        <Box sx={{
+          backgroundColor:"#F2F2F2",
+          height:30,
+          position:'relative'
 
+        }}>
+          <Box sx={{
+          backgroundColor:"#C58ADE",
+          height:30,
+          width:"30%",
+          position:'relative'
+        }}>
+          </Box>
+
+        </Box>
+
+      <p>Recaudado: $200.000/2.000.000</p>
         </Box>
 
         <Box>
             <FormGroup>
 
-            <FormControlLabel control={<Checkbox defaultUnChecked />} label="Acepto términos y condiciones" />
+            {/* <FormControlLabel control={<Checkbox defaultUnChecked />} label="Acepto términos y condiciones" /> */}
 
             {address ? (
             " "):(<Button 
@@ -158,8 +186,8 @@ export const InfoCampain = () => {
                :" "} 
 
             {address ? (
-              // <Button onClick={transfer} type="button"
-              <Button onClick={handleOpen2} type="button"
+               <Button onClick={transfer} type="button"
+             // <Button onClick={handleOpen2} type="button"
               variant="contained" sx={{ mt: 3, mb: 2, width:"48%" }}>Donar</Button>
             ) : (
             " " )}

@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
+import { textAlign } from '@mui/system';
 
 const item = {
   display: 'flex',
@@ -12,7 +13,7 @@ const item = {
 
 function ProductValues() {
   return (
-      <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative' }}>
+      <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative', alignItems:'center', textAlign:'center'}}>
         <Grid container spacing={5}>
           <Grid item xs={12} md={4}>
             <Box sx={item}>
