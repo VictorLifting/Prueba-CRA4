@@ -25,6 +25,10 @@ import { useEffect } from 'react';
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
+//
+import Web3 from "web3";
+import { newKitFromWeb3 } from "@celo/contractkit";
+
 
 
 
@@ -114,7 +118,10 @@ const agregarDatos = async()=>{
 
 
 
+//initialize kit () contractkit
 
+// const web3 = new Web3("https://forno.celo.org")
+// const kit = newKitFromWeb3(web3);
 
 
 

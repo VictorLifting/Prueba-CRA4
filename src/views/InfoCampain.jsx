@@ -10,6 +10,11 @@ import { ThanksModal } from '../components/ThanksModal';
 //celo
 import { useCelo } from '@celo/react-celo';
 
+const Web3 = require("web3");
+const ContractKit = require("@celo/contractkit");
+const web3 = new Web3("https://forno.celo.org");
+const kit2 = ContractKit.newKitFromWeb3(web3);
+
 
 
 const style = {
@@ -51,9 +56,263 @@ export const InfoCampain = () => {
   async function transfer() {
   const kit = await getConnectedKit();
   const cUSD = await kit.contracts.getStableToken();
-  await cUSD.transfer('0x1373f97256213a34B9f7bebb0DfA0c0843f81aAF', 1).sendAndWaitForReceipt();
+  await cUSD.transfer('0x1373f97256213a34B9f7bebb0DfA0c0843f81aAF', 1000000000000000).sendAndWaitForReceipt({ feeCurrency: cUSD.address });
   handleOpen2()
 }
+
+
+const ABI =
+[
+	{
+		"inputs": [
+			{
+				"internalType": "enum Fundraising.FundraisingState",
+				"name": "newState",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "projectIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "changeProjectState",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "fundraisingGoal",
+				"type": "uint256"
+			}
+		],
+		"name": "createProject",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "projectIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "fundProject",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "projectId",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "fundraisingGoal",
+				"type": "uint256"
+			}
+		],
+		"name": "ProjectCreated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "projectId",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "ProjectFunded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "id",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "enum Fundraising.FundraisingState",
+				"name": "state",
+				"type": "uint8"
+			}
+		],
+		"name": "ProjectStateChanged",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "projectIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "withdrawDeposit",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "contributions",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "contributor",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "projects",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "address payable",
+				"name": "author",
+				"type": "address"
+			},
+			{
+				"internalType": "enum Fundraising.FundraisingState",
+				"name": "state",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "funds",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "fundraisingGoal",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+
+
+
+const SendToContract = async ()=>{
+
+  const kit = await getConnectedKit();
+  const cUSD = await kit.contracts.getStableToken();
+  let contract = new kit.connection.web3.eth.Contract(ABI, "0xd0B352bF3c007324A841D6226e447AC391877076") 
+  //await contract.methods.recibirSaldo("0x1").send({from: address})
+//   let name = await contract.methods.getName().call();
+//  console.log(name);
+ 
+//  let name = await contract.methods.setName("ether").send({from: address});
+//       console.log(name);
+
+             let txObject = await contract.methods.fundProject("1");
+
+             // Send the transaction
+             let tx = await kit2.sendTransactionObject(txObject, { from: address, value:("10000"), feeCurrency: cUSD.address });
+         
+             let receipt = await tx.waitReceipt();
+             console.log(receipt);
+            // //          //console.log(kit)
+
+    }
+
+
+
+
 
 
 
@@ -81,7 +340,7 @@ export const InfoCampain = () => {
 
             <p>Creado por: Juan Pérez</p> 
 
-            <Link href="https://explorer.celo.org/mainnet/address/0x1373f97256213a34B9f7bebb0DfA0c0843f81aAF/token-transfers"
+            <Link href="https://explorer.celo.org/mainnet/address/0xd0B352bF3c007324A841D6226e447AC391877076/transactions"
             underline="none" 
             color="inherit"
             target={"_blank"}>
@@ -186,7 +445,7 @@ export const InfoCampain = () => {
                :" "} 
 
             {address ? (
-               <Button onClick={transfer} type="button"
+               <Button onClick={SendToContract} type="button"
              // <Button onClick={handleOpen2} type="button"
               variant="contained" sx={{ mt: 3, mb: 2, width:"48%" }}>Donar</Button>
             ) : (
