@@ -6,6 +6,7 @@ import { MiniContractKit } from '@celo/contractkit/lib/mini-kit';
 import { Header } from "./components/Header";
 import Register from "./components/Register";
 import SignIn from "./components/SignIng";
+
 import './styles.css';
 import Categories from "./views/Categories";
 
@@ -28,11 +29,15 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 //
 import Web3 from "web3";
 import { newKitFromWeb3 } from "@celo/contractkit";
+import { HowToDonate } from './views/HowToDonate';
 
 
 
 
 function App() {
+
+
+
 
   // //firebase user state
    const auth = getAuth();
@@ -67,27 +72,6 @@ function App() {
   }), [])
 
 
-
-  //use celo hook must always be inside the Celoprovider tree
-
- const { connect, address, destroy, performActions } = useCelo();
-
-//  const transferAndStore = useCallback(
-//    () => {
-    
-//     async function trasnferCUSD(){
-//       const cusdTokenContract = await kit.contracts.getStableToken()
-//       return await cusdTokenContract
-//       .transfer(RECEIVER_ADDRESS, Web3.utils.toWei('0.00000001', 'ether'))
-//       .sendAndWaitForReceipt({from:address})
-
-//     }
-//     async function anotherAction()
-
-//    },
-//    [second],
-//  )
-
   
 useEffect(() => {
 
@@ -118,23 +102,6 @@ const agregarDatos = async()=>{
 
 
 
-//initialize kit () contractkit
-
-// const web3 = new Web3("https://forno.celo.org")
-// const kit = newKitFromWeb3(web3);
-
-
-
-
-const { getConnectedKit } = useCelo();
-
-async function transfer() {
-  const kit = await getConnectedKit();
-  const cUSD = await kit.contracts.getStableToken();
-  await cUSD.transfer('0x1373f97256213a34B9f7bebb0DfA0c0843f81aAF', 1).sendAndWaitForReceipt();
-}
-
-
  
 
 
@@ -147,12 +114,7 @@ async function transfer() {
   <Route path="/home" element={<Home/>}/>
   <Route path="/register" element={<Register/>}/>
   <Route path="/login" element={
-
-    usuario ? <Home/> : <SignIn setUsuario={setUsuario} />
-  
-    
-
-
+    usuario ? <Home/> : <SignIn setUsuario={setUsuario} /> 
   }/>
   <Route path="/categories" element={<Categories/>}/>
   <Route path="/campains" element={<Campains/>}/>
@@ -160,31 +122,14 @@ async function transfer() {
   <Route path="/instructions" element={<Instructions/>}/>
   <Route path="/infoCampain" element={<InfoCampain/>}/>
   <Route path="/helpcenter" element={<HelpCenter/>}/>
+  <Route path="/howtodonate" element={<HowToDonate/>}/>
+
 
   </Routes>
   
 <Footer/>
 
- {/* {address ? (
-<div>Connected to {address}</div>
-) : (
-" "
-)}
 
-<button onClick={()=> address ? destroy () : connect()}>
-{address? "disconnect" :"Connect"} 
-</button>
-
-
-{address ? (
-  <button onClick={transfer}>Transfer</button>
-) : (
-" "
-)}
-
-{usuario ? <div>cerrar sesión </div> : <div>sin ingresar </div>}
-
-<button onClick={agregarDatos}> agregarDatos</button> */}
 
 </>
   );
