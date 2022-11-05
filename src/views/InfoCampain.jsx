@@ -3,7 +3,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { Button, FormControl, FormGroup, InputAdornment, InputLabel, Link, OutlinedInput } from '@mui/material';
 import Modal from '@mui/material/Modal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ConnectWaModal } from '../components/ConnectWaModal';
 import { ThanksModal } from '../components/ThanksModal';
 //contract ABI
@@ -16,6 +16,9 @@ const Web3 = require("web3");
 const ContractKit = require("@celo/contractkit");
 const web3 = new Web3("https://forno.celo.org");
 const kit2 = ContractKit.newKitFromWeb3(web3);
+
+
+
 
 
 
@@ -33,6 +36,16 @@ const style = {
 
 
 export const InfoCampain = () => {
+
+  //input valor
+  const [inputValue, setInputValue] = useState('')
+
+   const onInputChange =(event)=>{
+    let inputValue = event.target.value;
+     setInputValue(inputValue);
+      }
+
+
 
   //modal conectar
     const [open, setOpen] = useState(false);
@@ -64,14 +77,35 @@ export const InfoCampain = () => {
 
 
 const ApproveCUSD = async ()=>{
+
+  if (inputValue<=0 ||  inputValue === undefined){
+
+    console.log("seleccione un valor a donar")
+    return
+  }
+
 	const kit = await getConnectedKit();
 	const cUSD = await kit.contracts.getStableToken();
 
-	const approveTx = await cUSD.approve('0x513f65A1656c7868F860BFe5d20B6c4f739D714f', 10000).send({feeCurrency: cUSD.address})
+	const approveTx = await cUSD.approve('0x513f65A1656c7868F860BFe5d20B6c4f739D714f', 100000).send({feeCurrency: cUSD.address})
 	const approveReceipt = await approveTx.waitReceipt();
 
  console.log(approveReceipt);
  await SendToContract();
+}
+
+
+
+ useEffect(()=>{
+  DataCampain();
+    },[]);
+
+const DataCampain =async ()=>{
+
+  const kit = await getConnectedKit();
+  let contract = new kit.connection.web3.eth.Contract(contractABI, "0x513f65A1656c7868F860BFe5d20B6c4f739D714f") 
+  let name = await contract.methods.projects("2").call();
+  console.log("Fondos recolectados: "+ name.funds);
 }
 
 
@@ -87,7 +121,7 @@ const SendToContract = async ()=>{
 //  let name = await contract.methods.setName("ether").send({from: address});
 //       console.log(name);
 		// //console.log(cUSD)
-        let txObject = await contract.methods.fundProject("2", 1);
+        let txObject = await contract.methods.fundProject("2", inputValue);
 
         //      // Send the transaction
       // let tx = await kit2.sendTransactionObject(txObject, { from: address, value: (web3.utils.toWei('0.5', 'ether')), feeCurrency: cUSD.address, });
@@ -198,6 +232,8 @@ const SendToContract = async ()=>{
         <FormControl fullWidth sx={{ m: 1 }}>
           <InputLabel htmlFor="outlined-adornment-amount">Ingesa el monto a donar es CUSD</InputLabel>
           <OutlinedInput
+            value={ inputValue }
+            onChange={ onInputChange }
             type="number"
             id="outlined-adornment-amount"
             //value={values.amount}
@@ -228,17 +264,17 @@ const SendToContract = async ()=>{
             </Button>
                :" "} 
 
-            {address ? (
+            {/* {address ? (
                <Button onClick={SendToContract} type="button"
              // <Button onClick={handleOpen2} type="button"
               variant="contained" sx={{ mt: 3, mb: 2, width:"48%" }}>Donar</Button>
             ) : (
-            " " )}
+            " " )} */}
 
 			{address ? (
                <Button onClick={ApproveCUSD} type="button"
              // <Button onClick={handleOpen2} type="button"
-              variant="contained" sx={{ mt: 3, mb: 2, width:"48%" }}>Aprovar</Button>
+              variant="contained" sx={{ mt: 3, mb: 2, width:"48%" }}>Donar</Button>
             ) : (
             " " )}
 
