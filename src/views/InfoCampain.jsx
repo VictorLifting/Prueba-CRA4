@@ -68,9 +68,10 @@ const ApproveCUSD = async ()=>{
 	const cUSD = await kit.contracts.getStableToken();
 
 	const approveTx = await cUSD.approve('0x513f65A1656c7868F860BFe5d20B6c4f739D714f', 10000).send({feeCurrency: cUSD.address})
-	const approveReceipt = await approveTx.waitReceipt()
+	const approveReceipt = await approveTx.waitReceipt();
 
-	console.log(approveReceipt)
+ console.log(approveReceipt);
+ await SendToContract();
 }
 
 
@@ -86,22 +87,17 @@ const SendToContract = async ()=>{
 //  let name = await contract.methods.setName("ether").send({from: address});
 //       console.log(name);
 		// //console.log(cUSD)
-            let txObject = await contract.methods.fundProject("1", 1);
+        let txObject = await contract.methods.fundProject("2", 1);
 
         //      // Send the transaction
       // let tx = await kit2.sendTransactionObject(txObject, { from: address, value: (web3.utils.toWei('0.5', 'ether')), feeCurrency: cUSD.address, });
-			 let tx = await kit2.sendTransactionObject(txObject, { from: address, feeCurrency: cUSD.address, });
+			   let tx = await kit2.sendTransactionObject(txObject, { from: address, feeCurrency: cUSD.address, });
 
-           let receipt = await tx.waitReceipt();
+        let receipt = await tx.waitReceipt();
          console.log(receipt);
             // //          //console.log(kit)
-
+            handleOpen2()
     }
-
-
-
-
-
 
 
   return (

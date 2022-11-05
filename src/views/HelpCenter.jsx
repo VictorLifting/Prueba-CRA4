@@ -65,6 +65,21 @@ const images = [
     title: '¿Cómo crear una cuenta en Valora?',
     width: '30%',
   },
+  {
+    url: "./imgs/helpCenter/valora.png"  ,
+    title: '¿Cómo recargar Valora?',
+    width: '30%',
+  },
+  {
+    url: "./imgs/helpCenter/valora.png"  ,
+    title: '¿Cómo crear una campaña?',
+    width: '30%',
+  },
+  {
+    url: "./imgs/helpCenter/valora.png"  ,
+    title: '¿Cómo crear una cuenta de Coinbase?',
+    width: '30%',
+  },
 ];
 
 export default function HelpCenter() {

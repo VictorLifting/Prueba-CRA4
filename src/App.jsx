@@ -30,6 +30,11 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Web3 from "web3";
 import { newKitFromWeb3 } from "@celo/contractkit";
 import { HowToDonate } from './views/HowToDonate';
+import { HowToCreate } from './views/HowToCreate';
+import { HowToValora } from './views/HowToValora';
+import { HowToCoinbase } from './views/HowToCoinbase';
+import { HowToAccValora } from './views/HowToAccValora';
+import { HowToMoonpay } from './views/HowToMoonpay';
 
 
 
@@ -123,8 +128,12 @@ const agregarDatos = async()=>{
   <Route path="/infoCampain" element={<InfoCampain/>}/>
   <Route path="/helpcenter" element={<HelpCenter/>}/>
   <Route path="/howtodonate" element={<HowToDonate/>}/>
-
-
+  <Route path="/howtocreate" element={<HowToCreate/>}/>
+  <Route path="/howtovalora" element={<HowToValora/>}/>
+  <Route path="/howtocoinbase" element={<HowToCoinbase/>}/>
+  <Route path="/howtomoonpay" element={<HowToMoonpay/>}/>
+  <Route path="/howtoaccvalora" element={<HowToAccValora/>}/>
+  
   </Routes>
   
 <Footer/>
