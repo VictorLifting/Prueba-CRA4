@@ -5,6 +5,8 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
 import zIndex from '@mui/material/styles/zIndex';
+import { Link } from '@mui/material';
+
 
 const ImageBackdrop = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -39,46 +41,55 @@ const images = [
     url: "./imgs/helpCenter/faqs.png",
     title: 'FAQs',
     width: '30%',
+    link: '/howtodonate',
   },
   {
     url: "./imgs/helpCenter/donar.png",
     title: '¿Cómo donar?',
     width: '30%',
+    link: '/howtodonate',
   },
   {
     url: "./imgs/helpCenter/crear.png",
     title: '¿Cómo crear una campaña?',
     width: '30%',
+    link: '/howtocreate',
   },
   {
     url: "./imgs/helpCenter/retirar.png",
     title: '¿Cómo retirar el dinero de una campaña?',
     width: '30%',
+    link: '/howtodonate',
   },
   {
     url: "./imgs/helpCenter/trackear.png",
     title: '¿Cómo trackear el dinero de una campaña?',
     width: '30%',
+    link: '/howtodonate',
   },
   {
     url: "./imgs/helpCenter/valora.png"  ,
     title: '¿Cómo crear una cuenta en Valora?',
     width: '30%',
+    link: '/howtoaccvalora',
   },
   {
-    url: "./imgs/helpCenter/valora.png"  ,
+    url: "./imgs/helpCenter/crear.png"  ,
     title: '¿Cómo recargar Valora?',
     width: '30%',
+    link: '/howtovalora',
   },
   {
-    url: "./imgs/helpCenter/valora.png"  ,
-    title: '¿Cómo crear una campaña?',
+    url: "./imgs/helpCenter/crear.png"  ,
+    title: '¿Cómo comprar CUSD vía Moonpay?',
     width: '30%',
+    link: '/howtomoonpay',
   },
   {
-    url: "./imgs/helpCenter/valora.png"  ,
+    url: "./imgs/helpCenter/valora.png" ,
     title: '¿Cómo crear una cuenta de Coinbase?',
     width: '30%',
+    link: '/howtocoinbase',
   },
 ];
 
@@ -96,6 +107,8 @@ export default function HelpCenter() {
               
             }}
           >
+          
+          
             <Box
               sx={{
                 position: 'absolute',
@@ -108,12 +121,17 @@ export default function HelpCenter() {
                 zIndex:-1,
               }}
             />
-            
+
+          <Link href={image.link}
+          underline="none" 
+          color="inherit"
+          target={"_blank"}>
+        
             <Box  
             >
             <img src={image.url} alt="" />
             </Box>
-
+            </Link>   
               <Typography
                 component="h3"
                 variant="h6"
@@ -125,7 +143,10 @@ export default function HelpCenter() {
               </Typography>
          
           </ImageIconButton>
+       
         ))}
+        
+
       </Box>
     </Container>
   );

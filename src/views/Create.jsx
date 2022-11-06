@@ -1,4 +1,4 @@
-import {Box, TextField, FormGroup, Button} from "@mui/material"
+import {Box, TextField, FormGroup, Button, Modal} from "@mui/material"
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from "react";
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -8,6 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
+import { CreateModal } from "../components/CreateModal";
 
 
 
@@ -30,10 +31,27 @@ const categories = [
     },
   ];
 
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    borderRadius: "1rem",
+
+  };
 
 export const Create = () => {
 
     const [category, setCategories] = useState('EUR');
+
+        //modal Donar  
+      const [open, setOpen] = useState(true);
+
+      const handleOpen = () => setOpen(true);
+      const handleClose = () => setOpen(false);
+
   
     const handleChange = (event) => {
       setCategories(event.target.value);
@@ -122,6 +140,16 @@ export const Create = () => {
             </Button>
         </FormGroup>
         </Box>
+        <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            > 
+            <Box sx={style}>
+            <CreateModal/>
+            </Box>  
+            </Modal>
 
         
     </div>

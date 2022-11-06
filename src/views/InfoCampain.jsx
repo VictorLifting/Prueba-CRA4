@@ -87,7 +87,7 @@ const ApproveCUSD = async ()=>{
 	const kit = await getConnectedKit();
 	const cUSD = await kit.contracts.getStableToken();
 
-	const approveTx = await cUSD.approve('0x513f65A1656c7868F860BFe5d20B6c4f739D714f', 100000).send({feeCurrency: cUSD.address})
+	const approveTx = await cUSD.approve('0x513f65A1656c7868F860BFe5d20B6c4f739D714f', 100000).send({from: address, feeCurrency: cUSD.address})
 	const approveReceipt = await approveTx.waitReceipt();
 
  console.log(approveReceipt);
