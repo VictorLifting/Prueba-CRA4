@@ -25,7 +25,7 @@ const Background = styled(Box)({
   bottom: 0,
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
-  zIndex: -2,
+  zIndex: 0,
 });
 
 function ProductHeroLayout(props) {
@@ -33,18 +33,18 @@ function ProductHeroLayout(props) {
 
   return (
     <ProductHeroLayoutRoot>
-      <Container
+      <Box
         sx={{
-          mt: 3,
-          mb: 14,
+          mt: 0,
+          mb: 0,
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          flexDirection: 'row',
+
         }}
       >
         {children}
         <Background sx={sxBackground} />
-      </Container>
+      </Box>
     </ProductHeroLayoutRoot>
   );
 }

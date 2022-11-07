@@ -6,7 +6,7 @@ import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 
 const backgroundImage =
-  'https://i.ibb.co/QpspzXF/paper-heart-put-couple-s-hands-marble-table.jpg';
+  './imgs/banner.png';
 
 
   const style = {
@@ -31,28 +31,36 @@ export default function ProductHero() {
   const handleClose = () => setOpen(false);
 
   return (
-    <ProductHeroLayout
-      sxBackground={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundPosition: 'center', 
-      }}
+    <Box sx={{display: 'flex', backgroundColor:'#F6F8FF',position: 'relative'}}
+
+      // sxBackground={{
+      //   backgroundImage: `url(${backgroundImage})`,
+      //   backgroundPosition: 'center', 
+        
+      // }}
     >
       {/* Increase the network loading priority of the background image. */}
+      <Box 
+      sx={{
+        p:10, width: '40%', mt:10, mb:18,
+      }}>
+
       <img
         style={{ display: 'none' }}
         src={backgroundImage}
         alt="increase priority"
       />
-      <Typography color="inherit" align="center" variant="h2" >
-        ¿Quieres ser parte del cambio?
+      <Typography color="inherit" align="left" variant="h3" >
+       Dona de manera segura, confiable y transparente.
       </Typography>
       <Typography
         color="inherit"
-        align="center"
+        align="left"
         variant="h5"
-        sx={{ mb: 4, mt: { sx: 4, sm: 10 } }}
+        sx={{ mb: 4, mt: { sx: 2, sm: 5 } }}
       >
-       Unete al movimiento DreamUp
+       Lleva un rastreo de tus donaciones y dinero en tiempo real. Al incorporar la
+       tecnología blockchain podemos crear campañas mucho más confiables y seguras.
       </Typography>
       <Button
         onClick={handleOpen}
@@ -74,6 +82,15 @@ export default function ProductHero() {
             <DonateModal/>
             </Box>  
             </Modal>
-    </ProductHeroLayout>
+
+
+      </Box >
+
+      <Box sx={{  position: 'absolute', right: 0, top: -5}}>
+
+      <img src="./imgs/banner.png" alt="" />
+
+      </Box>
+    </Box>
   );
 }

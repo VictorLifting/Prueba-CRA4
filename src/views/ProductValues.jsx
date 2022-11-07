@@ -13,7 +13,13 @@ const item = {
 
 function ProductValues() {
   return (
-      <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative', alignItems:'center', textAlign:'center'}}>
+    <>
+     <Typography variant="h6" sx={{ my: 5, textAlign:'center' }}>
+     ¿Por qué nosotros? 
+      </Typography>
+
+      <Container sx={{ mt: 10, mb: 30, display: 'flex', position: 'relative', alignItems:'center', textAlign:'center'}}>
+
         <Grid container spacing={5}>
           <Grid item xs={12} md={4}>
             <Box sx={item}>
@@ -71,6 +77,7 @@ function ProductValues() {
           </Grid>
         </Grid>
       </Container>
+      </>
 
   );
 }

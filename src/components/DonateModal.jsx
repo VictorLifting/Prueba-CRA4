@@ -1,10 +1,6 @@
 import { Box } from "@mui/system";
-import { ThemeProvider } from "@mui/material";
-import Button from '@mui/material/Button';
-import { Link as RouterLink} from "react-router-dom";
-import Link from '@mui/material/Link';
 import { SliderModal } from "./SliderModal";
-import Typography from "./Typography";
+
 
 //import theme from "../styles";
 //import qrc from "../imgs/Qr/image-qr-code.png";
