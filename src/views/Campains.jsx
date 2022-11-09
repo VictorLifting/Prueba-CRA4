@@ -53,10 +53,6 @@ export const Campains = () => {
             <CardCampain>
           </CardCampain>
           </Link>
-        
-
-
-
 
     ))}
     

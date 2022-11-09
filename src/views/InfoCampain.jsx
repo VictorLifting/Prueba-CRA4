@@ -40,6 +40,9 @@ export const InfoCampain = () => {
   //input valor
   const [inputValue, setInputValue] = useState('')
 
+  //fondos recolectados 
+  const [collectedFunds, setcollectedFunds] = useState(0)
+
    const onInputChange =(event)=>{
     let inputValue = event.target.value;
      setInputValue(inputValue);
@@ -87,7 +90,7 @@ const ApproveCUSD = async ()=>{
 	const kit = await getConnectedKit();
 	const cUSD = await kit.contracts.getStableToken();
 
-	const approveTx = await cUSD.approve('0x513f65A1656c7868F860BFe5d20B6c4f739D714f', 100000).send({from: address, feeCurrency: cUSD.address})
+	const approveTx = await cUSD.approve('0x1452A295254a01Cb027d20894cE0C96417d46570', (web3.utils.toWei(inputValue, 'ether'))).send({from: address, feeCurrency: cUSD.address});
 	const approveReceipt = await approveTx.waitReceipt();
 
  console.log(approveReceipt);
@@ -100,12 +103,17 @@ const ApproveCUSD = async ()=>{
   DataCampain();
     },[]);
 
+
 const DataCampain =async ()=>{
 
-  const kit = await getConnectedKit();
-  let contract = new kit.connection.web3.eth.Contract(contractABI, "0x513f65A1656c7868F860BFe5d20B6c4f739D714f") 
-  let name = await contract.methods.projects("2").call();
-  console.log("Fondos recolectados: "+ name.funds);
+  //const kit = await getConnectedKit();
+  let contract = new kit2.connection.web3.eth.Contract(contractABI, "0x1452A295254a01Cb027d20894cE0C96417d46570") 
+  let data = await contract.methods.projects("0").call();
+   let funds = await data.funds;
+   let fundraisingGoal = await data.fundraisingGoal;
+   let fundsConverted = (funds*100)/fundraisingGoal;
+   setcollectedFunds(fundsConverted);
+  console.log("Fondos recolectados: "+ funds +" Meta: " +fundraisingGoal+ "conversion: "+fundsConverted+"%");
 }
 
 
@@ -113,7 +121,7 @@ const SendToContract = async ()=>{
 
   const kit = await getConnectedKit();
   const cUSD = await kit.contracts.getStableToken();
-  let contract = new kit.connection.web3.eth.Contract(contractABI, "0x513f65A1656c7868F860BFe5d20B6c4f739D714f") 
+  let contract = new kit.connection.web3.eth.Contract(contractABI, "0x1452A295254a01Cb027d20894cE0C96417d46570") 
   //await contract.methods.recibirSaldo("0x1").send({from: address})
 //   let name = await contract.methods.getName().call();
 //  console.log(name);
@@ -121,7 +129,7 @@ const SendToContract = async ()=>{
 //  let name = await contract.methods.setName("ether").send({from: address});
 //       console.log(name);
 		// //console.log(cUSD)
-        let txObject = await contract.methods.fundProject("2", inputValue);
+        let txObject = await contract.methods.fundProject("0", inputValue);
 
         //      // Send the transaction
       // let tx = await kit2.sendTransactionObject(txObject, { from: address, value: (web3.utils.toWei('0.5', 'ether')), feeCurrency: cUSD.address, });
@@ -196,7 +204,7 @@ const SendToContract = async ()=>{
           <Box sx={{
           backgroundColor:"#C58ADE",
           height:30,
-          width:"30%",
+          width:`${collectedFunds}%`,
           position:'relative'
         }}>
           </Box>

@@ -35,6 +35,7 @@ import { HowToValora } from './views/HowToValora';
 import { HowToCoinbase } from './views/HowToCoinbase';
 import { HowToAccValora } from './views/HowToAccValora';
 import { HowToMoonpay } from './views/HowToMoonpay';
+import { MyCampains } from './views/MyCampains';
 
 
 
@@ -127,6 +128,7 @@ const agregarDatos = async()=>{
   <Route path="/instructions" element={<Instructions/>}/>
   <Route path="/infoCampain" element={<InfoCampain/>}/>
   <Route path="/helpcenter" element={<HelpCenter/>}/>
+  <Route path="/mycampains" element={<MyCampains/>}/>
   <Route path="/howtodonate" element={<HowToDonate/>}/>
   <Route path="/howtocreate" element={<HowToCreate/>}/>
   <Route path="/howtovalora" element={<HowToValora/>}/>
