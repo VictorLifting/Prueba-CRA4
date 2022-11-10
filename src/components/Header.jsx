@@ -2,9 +2,12 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import { Link as RouterLink} from "react-router-dom";
+import { MenuHeader } from './MenuHeader';
 
 //firebase
 import { getAuth, signOut } from "firebase/auth";
+
+
 
 export const Header = (props) => {
   
@@ -79,13 +82,18 @@ export const Header = (props) => {
         </Link>
 
         {props.usuario ? 
-        <Button 
-            size="small"
-            variant="contained"	
-            onClick={cerrarSesion}
-          >
-			  	Cerrar sesión
-		  	</Button>
+        <Box>
+
+          {/* <Button 
+              size="small"
+              variant="contained"	
+              onClick={cerrarSesion}
+            >
+            {props.usuario.email}
+          </Button> */}
+         <MenuHeader usuario={props.usuario} logout={cerrarSesion} />
+
+        </Box>
           :
         <Link 
         component={RouterLink} 

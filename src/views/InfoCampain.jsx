@@ -95,8 +95,8 @@ const ApproveCUSD = async ()=>{
 
  console.log(approveReceipt);
  await SendToContract();
+ 
 }
-
 
 
  useEffect(()=>{
