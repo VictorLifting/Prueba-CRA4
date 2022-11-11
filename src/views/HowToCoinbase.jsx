@@ -51,10 +51,10 @@ export const HowToCoinbase = () => {
 
   return (
 
-    <Box sx={{marginBottom:15}}>
+    <Box sx={{marginBottom:20}}>
 
-        <Box sx={{p:5}}>
-        <Typography>¿Cómo crear una cuenta de Coinbase?</Typography>
+        <Box  sx={{px:5, pt:10}}>
+        <Typography variant="h5" color="#C58ADE">¿Cómo crear una cuenta de Coinbase?</Typography>
 
         </Box>
 

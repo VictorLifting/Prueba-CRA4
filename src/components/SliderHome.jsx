@@ -30,9 +30,6 @@ export const SliderHome = ({ imagenes }) => {
                     {imagenActual === index && (
                         <Box 
                         sx={{display: 'flex', flexDirection: 'row'}}>
-                       
-
-                       
 
                         <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center',justifyContent: 'center', px:20}}>
                        
@@ -57,7 +54,7 @@ export const SliderHome = ({ imagenes }) => {
                         </Box>
                         <Button
                         color="secondary"
-                        variant="contained"
+                        variant="outlined"
                         onClick={siguienteImagen}>
                        →
                         </Button>

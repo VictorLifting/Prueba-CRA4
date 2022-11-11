@@ -32,10 +32,10 @@ export const HowToCreate = () => {
 
   return (
 
-    <Box sx={{marginBottom:15}}>
+    <Box sx={{marginBottom:20}}>
 
-        <Box sx={{p:5}}>
-        <Typography>¿Cómo crear a una campaña?</Typography>
+        <Box  sx={{px:5, pt:10}}>
+        <Typography variant="h5" color="#C58ADE">¿Cómo crear a una campaña?</Typography>
 
         </Box>
 

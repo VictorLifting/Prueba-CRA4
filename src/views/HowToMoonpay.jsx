@@ -47,10 +47,10 @@ export const HowToMoonpay = () => {
 
   return (
 
-    <Box sx={{marginBottom:15}}>
+    <Box sx={{marginBottom:25}}>
 
-        <Box sx={{p:5}}>
-        <Typography>¿Cómo comprar CUSD vía Moonpay?</Typography>
+        <Box  sx={{px:5, pt:10}}>
+        <Typography variant="h5" color="#C58ADE">¿Cómo comprar CUSD vía Moonpay?</Typography>
 
         </Box>
 

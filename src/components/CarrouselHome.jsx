@@ -1,5 +1,6 @@
 import { Box } from "@mui/system";
 import { SliderHome } from "./SliderHome";
+import Typography from "./Typography";
 
 
 export const CarrouselHome = () => {
@@ -66,12 +67,14 @@ export const CarrouselHome = () => {
 
     // </Box>
 
-            <Box sx={{marginBottom:15}}>
+            <Box sx={{marginBottom:20}}>
 
             <Box sx={{p:0}}>
-
+            <Typography variant="h5" sx={{ my: 10, textAlign:'center' }}>
+             ¿Cómo funciona? 
+            </Typography>
             </Box>
-
+            
             <Box >
             <SliderHome imagenes={mockImagenes}/>
 

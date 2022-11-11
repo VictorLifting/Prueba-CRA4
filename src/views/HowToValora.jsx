@@ -37,10 +37,10 @@ export const HowToValora = () => {
 
   return (
 
-    <Box sx={{marginBottom:15}}>
+    <Box sx={{marginBottom:20}}>
 
-        <Box sx={{p:5}}>
-        <Typography>¿Cómo crear una cuenta en Valora?</Typography>
+        <Box  sx={{px:5, pt:10}}>
+        <Typography variant="h5" color="#C58ADE">¿Cómo recargar una cuenta en Valora?</Typography>
 
         </Box>
 

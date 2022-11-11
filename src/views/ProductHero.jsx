@@ -50,11 +50,11 @@ export default function ProductHero() {
         src={backgroundImage}
         alt="increase priority"
       />
-      <Typography color="inherit" align="left" variant="h3" >
+      <Typography color="#C58ADE" align="left" variant="h3" >
        Dona de manera segura, confiable y transparente.
       </Typography>
       <Typography
-        color="inherit"
+        color="#3D3D3D"
         align="left"
         variant="h5"
         sx={{ mb: 4, mt: { sx: 2, sm: 5 } }}
@@ -70,7 +70,7 @@ export default function ProductHero() {
         component="a"
         sx={{ minWidth: 200 }}
       >
-        Quiero Donar
+        Donar ahora
       </Button>
       <Modal
                 open={open}

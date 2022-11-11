@@ -84,7 +84,7 @@ export default function SignIn(props) {
         >
 
           <Typography component="h1" variant="h5">
-           Iniciar Sesión
+           Iniciar sesión
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -117,7 +117,7 @@ export default function SignIn(props) {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Iniciar sesión
             </Button>
             <Grid container>
               <Grid item xs>

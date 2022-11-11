@@ -14,11 +14,11 @@ const item = {
 function ProductValues() {
   return (
     <>
-     <Typography variant="h6" sx={{ my: 5, textAlign:'center' }}>
+     <Typography variant='h5' sx={{ my: 15, textAlign:'center' }}>
      ¿Por qué nosotros? 
       </Typography>
 
-      <Container sx={{ mt: 10, mb: 30, display: 'flex', position: 'relative', alignItems:'center', textAlign:'center'}}>
+      <Container sx={{ mt: 5, mb: 15, display: 'flex', position: 'relative', alignItems:'center', textAlign:'center'}}>
 
         <Grid container spacing={5}>
           <Grid item xs={12} md={4}>
@@ -32,7 +32,7 @@ function ProductValues() {
               <Typography variant="h6" sx={{ my: 5 }}>
                Confianza
               </Typography>
-              <Typography variant="h5">
+              <Typography>
                 {
                   'Nuestras campañas son revisadas y validadas por un excelente equipo, para así evitar estáfas.'
                 }
@@ -51,7 +51,7 @@ function ProductValues() {
               <Typography variant="h6" sx={{ my: 5 }}>
                 Seguridad
               </Typography>
-              <Typography variant="h5">
+              <Typography>
                 {
                   'Gracias a la tecnología blockchain las donaciones son mucho más seguras.'
                 }
@@ -70,7 +70,7 @@ function ProductValues() {
               <Typography variant="h6" sx={{ my: 5 }}>
                 Transparencia
               </Typography>
-              <Typography variant="h5">
+              <Typography >
                 {'Al donar con criptomonedas aseguramos la transparencia entre donante y donado.'}
               </Typography>
             </Box>

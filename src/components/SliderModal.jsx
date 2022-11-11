@@ -33,8 +33,8 @@ export const SliderModal = ({ imagenes }) => {
                         <Box 
                         sx={{display: 'flex', flexDirection: 'column',justifyContent: 'center',}}>
 
-                        <Typography>{imagen.title}</Typography>
-                        <Typography>{imagen.description}</Typography>
+                        <Typography variant='h4' color="#C58ADE" sx={{mb:4}}>{imagen.title}</Typography>
+                        <Typography sx={{mb:10}}>{imagen.description}</Typography>
 
                         <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center',justifyContent: 'center' }}>
                        
@@ -47,7 +47,7 @@ export const SliderModal = ({ imagenes }) => {
                         <img key={index} src={imagen.img} alt="imagen" />
                         <Button
                         color="secondary"
-                        variant="contained"
+                        variant="outlined"
                         onClick={siguienteImagen}>
                        →
                         </Button>

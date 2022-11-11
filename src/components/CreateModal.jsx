@@ -19,13 +19,13 @@ export const  CreateModal = ({ onFin }) => {
             img: './imgs/modals/create/1.png',
         },
         {
-            title: "Primero",
+            title: "Recauda fondos en 3 simples pasos",
             description:'2. Espera a que tu campaña sea veríficada por el equipo de dreamUp. Este proceso no demorará más de 24 horas.',
             img: './imgs/modals/create/2.png',
         },
         {
-            title: "Segundo",
-            description:'3 .Comparte tu campaña por redes sociales y empieza a recaudar tus fondos en celo dólar (CUSD).',
+            title: "Recauda fondos en 3 simples pasos",
+            description:'3. Comparte tu campaña por redes sociales y empieza a recaudar tus fondos en celo dólar (CUSD).',
             img: './imgs/modals/create/3.png',
         },
 
@@ -49,9 +49,9 @@ export const  CreateModal = ({ onFin }) => {
           boxShadow: "rgb(162, 179, 198) 0px 24px 42px -12px;",
         }}
       >
-        <Box sx={{marginBottom:15}}>
+        <Box sx={{marginBottom:2}}>
 
-            <Box sx={{p:5}}>
+            <Box sx={{p:0}}>
 
             </Box>
 

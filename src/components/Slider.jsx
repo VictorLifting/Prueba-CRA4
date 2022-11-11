@@ -29,12 +29,12 @@ export const Slider = ({ imagenes }) => {
 
                     {imagenActual === index && (
                         <Box 
-                        sx={{display: 'flex',p:5, }}>
+                        sx={{display: 'flex',px:5, }}>
                         <Box 
                         sx={{display: 'flex', flexDirection: 'column',justifyContent: 'center', marginRight:2}}>
 
-                        <Typography>{imagen.title}</Typography>
-                        <Typography>{imagen.description}</Typography>
+                        <Typography variant="h4" sx={{mb:3}}>{imagen.title}</Typography>
+                        <Typography sx={{mb:3}}>{imagen.description}</Typography>
 
                         <Box>
                        
@@ -47,7 +47,8 @@ export const Slider = ({ imagenes }) => {
                         <Button
                         color="secondary"
                         variant="contained"
-                        onClick={siguienteImagen}>
+                        onClick={siguienteImagen}
+                        sx={{ml:5}}>
                         Siguiente
                         </Button>
 

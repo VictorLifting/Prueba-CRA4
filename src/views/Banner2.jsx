@@ -2,6 +2,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import { Link as RouterLink} from "react-router-dom";
+import Typography from '../components/Typography';
 
 export const Banner2 = () => {
   return (
@@ -15,9 +16,11 @@ export const Banner2 = () => {
        paddingLeft:5,
     }}>
 
-    <Box>
-    <h2>Tienes una campaña en mente?</h2>
-    <p>Hazla realidad con nosotros!</p>
+    <Box> 
+    <Typography variant="h3" color="#ffffff" sx={{ mb: 2 }} >¿Tienes en mente una campaña? </Typography>
+    <Typography variant="h5" color="#ffffff">Hazla realidad con nosotros! </Typography>
+    
+    <p></p>
     <Box sx={{
     
     }
@@ -28,6 +31,7 @@ export const Banner2 = () => {
         <Button 
         type="button"
         variant="contained"
+        color="secondary"
         sx={{ mt: 3, mb: 2 }}
         >
         Crear campaña
@@ -36,6 +40,7 @@ export const Banner2 = () => {
         <Button
         type="button"
         variant="outlined"
+        color="secondary"
         sx={{ mt: 3, mb: 2 }}
         >
           

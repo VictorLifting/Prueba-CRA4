@@ -54,9 +54,9 @@ export const  DonateModal = ({ onFin }) => {
           boxShadow: "rgb(162, 179, 198) 0px 24px 42px -12px;",
         }}
       >
-        <Box sx={{marginBottom:15}}>
+        <Box sx={{marginBottom:10}}>
 
-            <Box sx={{p:5}}>
+            <Box sx={{p:0}}>
 
             </Box>
 
