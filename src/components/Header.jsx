@@ -52,8 +52,8 @@ export const Header = (props) => {
        
        </Link>
 
-        <Link href="#" underline="none" color="inherit" marginLeft={5}>
-        {'Sobre DreamUp'}
+       <Link component={RouterLink} to="/about" underline="none" color="inherit" marginLeft={5}>
+        {'Sobre Nosotros'}
         </Link>
 
         <Link component={RouterLink} to="/categories" underline="none" color="inherit" marginLeft={5}>

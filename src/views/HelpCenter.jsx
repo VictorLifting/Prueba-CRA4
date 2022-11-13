@@ -41,7 +41,7 @@ const images = [
     url: "./imgs/helpCenter/faqs.png",
     title: 'FAQs',
     width: '30%',
-    link: '/howtodonate',
+    link: '/Faqs',
   },
   {
     url: "./imgs/helpCenter/donar.png",

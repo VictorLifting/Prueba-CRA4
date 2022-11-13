@@ -1,9 +1,11 @@
 import { Box, Modal } from '@mui/material';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
+import TypewriterComponent from 'typewriter-effect';
 import { DonateModal } from '../components/DonateModal';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
+
 
 const backgroundImage =
   './imgs/banner.png';
@@ -51,8 +53,22 @@ export default function ProductHero() {
         alt="increase priority"
       />
       <Typography color="#C58ADE" align="left" variant="h3" >
-       Dona de manera segura, confiable y transparente.
+       Dona de manera
       </Typography>
+      <TypewriterComponent
+      onInit={(typewriter)=>{
+        typewriter.typeString("Segura")
+        .pauseFor(1000)
+        .deleteAll()
+        .typeString("Confiable")
+        .pauseFor(1000)
+        .deleteAll()
+        .typeString("Transparente")
+        .start();
+      }}
+      />
+
+      
       <Typography
         color="#3D3D3D"
         align="left"

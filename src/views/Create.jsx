@@ -14,19 +14,19 @@ import { CreateModal } from "../components/CreateModal";
 
 const categories = [
     {
-      value: 'USD',
+      value: 'Educación',
       label: 'Educación',
     },
     {
-      value: 'EUR',
+      value: 'Salud',
       label: 'Salud',
     },
     {
-      value: 'BTC',
+      value: 'Animales',
       label: 'Animales',
     },
     {
-      value: 'JPY',
+      value: 'Familiar',
       label: 'Familiar',
     },
   ];
@@ -57,6 +57,18 @@ export const Create = () => {
       setCategories(event.target.value);
     };
 
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      console.log({
+        name: data.get('name'),
+        description: data.get('description'),
+        category: data.get('category'),
+        goal: data.get('goal')
+      });
+     // iniciarSesion(data.get('email'),data.get('password'));
+    };
+
   return (
     <div style={{ width: '100%' }}>
 
@@ -68,29 +80,34 @@ export const Create = () => {
         <Typography
         component="h3"
         variant="h6"
-        color="inherit"
+        color="#C58ADE"
         className="imageTitle"
         >
         Crea una campaña
         <div className="imageMarked" />
         </Typography>
 
-        <FormGroup>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1, display:'flex' }}>
+          
+
+            
+         
+        <FormGroup sx={{width:'100%', mr:2}}>
         <FormControl fullWidth sx={{ m: 1 }}> 
-        <TextField id="outlined-basic" label="Nombre de la campaña" variant="outlined" />
+        <TextField name="name" label="Nombre de la campaña" variant="outlined" />
         </FormControl>
         <FormControl fullWidth sx={{ m: 1 }}> 
         <TextField
-          id="outlined-multiline-static"
+          name="description"
           label="Descripción"
           multiline
           rows={4}
-          defaultValue="Descripción"
+         
         />
         </FormControl>
         <FormControl fullWidth sx={{ m: 1 }}> 
         <TextField
-          id="outlined-select-currency"
+          name="category"
           select
           label="Categoria"
           value={category}
@@ -104,32 +121,19 @@ export const Create = () => {
 
           ))}
         </TextField>
+        
         </FormControl>
-
         <FormControl fullWidth sx={{ m: 1 }}>
           <InputLabel htmlFor="outlined-adornment-amount">Meta</InputLabel>
           <OutlinedInput
             type="number"
-            id="outlined-adornment-amount"
+            name="goal"
             //value={values.amount}
            // onChange={handleChange('amount')}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
             label="Meta"
           />
         </FormControl>
-
-        <FormControl fullWidth sx={{ m: 1 }}>
-          <InputLabel htmlFor="outlined-adornment-amount"></InputLabel>
-          <OutlinedInput
-            type="file"
-            id="outlined-adornment-amount"
-            //value={values.amount}
-           // onChange={handleChange('amount')}
-
-            label="Seleccionar fotos"
-          />
-        </FormControl>
-
         <FormControlLabel control={<Checkbox defaultUnChecked />} label="Acepto términos y condiciones" />
         <Button
               type="submit"
@@ -138,7 +142,23 @@ export const Create = () => {
             >
               Publicar
             </Button>
+
         </FormGroup>
+        <FormControl fullWidth sx={{ m: 1}}>
+          <InputLabel htmlFor="outlined-adornment-amount">Seleccionar foto</InputLabel>
+          <OutlinedInput
+            type="file"
+            name="outlined-adornment-amount"
+            //value={values.amount}
+           // onChange={handleChange('amount')}
+            sx={{ height:'50%', p:10}}
+          />
+        </FormControl>
+        
+        
+
+        
+        </Box>
         </Box>
         <Modal
                 open={open}
