@@ -59,13 +59,13 @@ const images = [
     url: "./imgs/helpCenter/retirar.png",
     title: '¿Cómo retirar el dinero de una campaña?',
     width: '30%',
-    link: '/howtodonate',
+    link: '/howtowithdraw',
   },
   {
     url: "./imgs/helpCenter/trackear.png",
     title: '¿Cómo trackear el dinero de una campaña?',
     width: '30%',
-    link: '/howtodonate',
+    link: '/howtotrack',
   },
   {
     url: "./imgs/helpCenter/valora.png"  ,

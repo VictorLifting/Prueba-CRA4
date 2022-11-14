@@ -3,7 +3,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
 
-export const CardCampain = () => {
+export const CardCampain = (props) => {
   return (
 
     <Box sx={{ 
@@ -40,7 +40,7 @@ export const CardCampain = () => {
                 color="inherit"
                 className="imageTitle"
               >
-                Salva a Roco
+                {props.title}
                 <div className="imageMarked" />
               </Typography>
 

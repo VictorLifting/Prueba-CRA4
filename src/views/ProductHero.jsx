@@ -66,7 +66,7 @@ export default function ProductHero() {
         .typeString("Transparente")
         .start();
       }}
-      />
+      /> 
 
       
       <Typography

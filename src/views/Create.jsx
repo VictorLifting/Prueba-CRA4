@@ -10,6 +10,10 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import { CreateModal } from "../components/CreateModal";
 
+//firebase
+import db from '../firebase/firebasConfig';
+import { collection, getDocs, addDoc } from "firebase/firestore";
+import { EmptyCreate } from "../components/EmptyCreate";
 
 
 const categories = [
@@ -42,7 +46,7 @@ const categories = [
 
   };
 
-export const Create = () => {
+export const Create = (props) => {
 
     const [category, setCategories] = useState('EUR');
 
@@ -66,8 +70,27 @@ export const Create = () => {
         category: data.get('category'),
         goal: data.get('goal')
       });
-     // iniciarSesion(data.get('email'),data.get('password'));
+      addCampain(data.get('name'),data.get('description'),data.get('category'),data.get('goal'));
     };
+
+
+    
+const addCampain = async(name, description,category,goal)=>{
+
+  try {
+
+    const docRef = await addDoc(collection(db, "Solicitudes"), {
+      name: name,
+      description: description,
+      category: category,
+      goal:goal,
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+
+}
 
   return (
     <div style={{ width: '100%' }}>
@@ -77,6 +100,9 @@ export const Create = () => {
           padding:10,
         }}>
 
+
+      {props.usuario ? (
+            <Box>
         <Typography
         component="h3"
         variant="h6"
@@ -88,10 +114,7 @@ export const Create = () => {
         </Typography>
 
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1, display:'flex' }}>
-          
 
-            
-         
         <FormGroup sx={{width:'100%', mr:2}}>
         <FormControl fullWidth sx={{ m: 1 }}> 
         <TextField name="name" label="Nombre de la campaña" variant="outlined" />
@@ -154,11 +177,12 @@ export const Create = () => {
             sx={{ height:'50%', p:10}}
           />
         </FormControl>
-        
-        
-
-        
+    
         </Box>
+            </Box>            
+            
+            ):(<EmptyCreate/>)}
+
         </Box>
         <Modal
                 open={open}

@@ -38,7 +38,8 @@ import { HowToMoonpay } from './views/HowToMoonpay';
 import { MyCampains } from './views/MyCampains';
 import { About } from './views/About';
 import { Faqs } from './views/Faqs';
-
+import { HowToWithdraw } from './views/HowToWithdraw';
+import { HowToTrack } from './views/HowToTrack';
 
 
 
@@ -126,7 +127,7 @@ const agregarDatos = async()=>{
   }/>
   <Route path="/categories" element={<Categories/>}/>
   <Route path="/campains" element={<Campains/>}/>
-  <Route path="/create" element={<Create/>}/>
+  <Route path="/create" element={<Create usuario={usuario}/>}/>
   <Route path="/instructions" element={<Instructions/>}/>
   <Route path="/infoCampain" element={<InfoCampain/>}/>
   <Route path="/helpcenter" element={<HelpCenter/>}/>
@@ -137,6 +138,8 @@ const agregarDatos = async()=>{
   <Route path="/howtocoinbase" element={<HowToCoinbase/>}/>
   <Route path="/howtomoonpay" element={<HowToMoonpay/>}/>
   <Route path="/howtoaccvalora" element={<HowToAccValora/>}/>
+  <Route path="/howtowithdraw" element={<HowToWithdraw/>}/>
+  <Route path="/howtotrack" element={<HowToTrack/>}/>
   <Route path="/about" element={<About/>}/>
   <Route path="/Faqs" element={<Faqs/>}/>
 
