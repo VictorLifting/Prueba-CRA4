@@ -10,6 +10,15 @@ import { ThanksModal } from '../components/ThanksModal';
 import contractABI from '../utils/ABI';
 //celo
 import { useCelo } from '@celo/react-celo';
+//react router
+import { useParams } from 'react-router-dom';
+//firebase
+import db from '../firebase/firebasConfig';
+import { collection, getDoc, doc } from 'firebase/firestore';
+
+
+
+
 
 
 const Web3 = require("web3");
@@ -36,6 +45,38 @@ const style = {
 
 
 export const InfoCampain = () => {
+  
+
+  //data campain
+  const [datosCampain, setDatosCampain] = useState('')
+
+    //router
+    const {id} = useParams();
+
+    console.log("el id es:"+id)
+
+  //firebase
+  useEffect(() => {
+
+    const obtenerDatos = async() =>{
+
+      const docRef = doc(db, "Campains", id);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data().name);
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+
+      setDatosCampain(docSnap.data());
+    }
+
+    obtenerDatos();
+  
+  }, [])
+
 
   //input valor
   const [inputValue, setInputValue] = useState('')
@@ -155,7 +196,7 @@ const SendToContract = async ()=>{
 
 
         <Box>
-            <h2>Salva a Roco</h2>
+            <h2>{datosCampain.name}</h2>
           <img src="./imgs/roco.png" alt="" />
 
           <Box sx={{
@@ -184,12 +225,12 @@ const SendToContract = async ()=>{
         <Box sx={{
             display: 'flex'
         }}>
-        <strong>Categoria: </strong> <p> Animales</p>
+        <strong>Categoria: </strong> <p> {datosCampain.category}</p>
         </Box>
         <Box sx={{
             display: 'flex'
         }}>
-        <strong>Descripción: </strong> <p>Ayudenme a salvar a mi gato Rocco. Ha sido diagnosticado con una enfermadad muy grave y hay que operar. Sin embargo mi familia no posee con los recursos necesarios para la operación y la hospitalización. </p>
+        <strong>Descripción: </strong> <p>{ datosCampain.description}</p>
         </Box>
 
         <Box>

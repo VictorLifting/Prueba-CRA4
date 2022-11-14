@@ -12,8 +12,7 @@ export const useFetchCampains = () => {
      const obtenerDatos = async() =>{
         const datos = await getDocs(collection(db,'Campains'));
         //const arreglo = datos._snapshot.docChanges;
-        //console.log(datos.data())
-
+    
         // const campains = datos.map(campain=>({
         //         date: campain.data().Date,
         //       goal: campain.data().Meta,
@@ -29,23 +28,26 @@ export const useFetchCampains = () => {
         let campains = [];
         datos.forEach(element => {
           //console.log(element.data().name);  
-
+            //console.log(element.id)
          const date= element.data().Date;
          const goal= element.data().Meta;
          const category = element.data().category;
          const owner =element.data().By;
          const title= element.data().name;
+         const id = element.id;
   
           const Campain={
             Date: date,
             Goal: goal,
             Category: category,
             By: owner,
-            Name: title  
+            Name: title,
+            id: id,
+              
           }
 
            campains.push(Campain)
-
+           //console.log(C);
             // setImages(campains);
         //    setImages(Campain);
         //   setIsloading(false);
@@ -54,7 +56,7 @@ export const useFetchCampains = () => {
         
         setImages(campains);
         setIsloading(false);
-        console.log(images);
+        //console.log(images);
       }
 
       useEffect(()=>{

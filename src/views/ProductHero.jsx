@@ -54,7 +54,6 @@ export default function ProductHero() {
       />
       <Typography color="#C58ADE" align="left" variant="h3" >
        Dona de manera
-      </Typography>
       <TypewriterComponent
       onInit={(typewriter)=>{
         typewriter.typeString("Segura")
@@ -67,7 +66,7 @@ export default function ProductHero() {
         .start();
       }}
       /> 
-
+      </Typography>
       
       <Typography
         color="#3D3D3D"

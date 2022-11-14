@@ -68,14 +68,15 @@ export const Create = (props) => {
         name: data.get('name'),
         description: data.get('description'),
         category: data.get('category'),
-        goal: data.get('goal')
+        goal: data.get('goal'),
+        //userId: props.usuario.id
       });
-      addCampain(data.get('name'),data.get('description'),data.get('category'),data.get('goal'));
+      addCampain(data.get('name'),data.get('description'),data.get('category'),data.get('goal'),props.usuario.uid);
     };
 
 
     
-const addCampain = async(name, description,category,goal)=>{
+const addCampain = async(name, description,category,goal,userId)=>{
 
   try {
 
@@ -84,6 +85,7 @@ const addCampain = async(name, description,category,goal)=>{
       description: description,
       category: category,
       goal:goal,
+      userId: userId,
     });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {

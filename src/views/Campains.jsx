@@ -124,7 +124,7 @@ export const Campains = () => {
             //<GiftItem key={images.id} 
             // title={images.title} url={images.url}
             //{...images}
-            <Link component={RouterLink} to={`/infoCampain`} underline="none" color="inherit">
+            <Link component={RouterLink} to={`/infoCampain/${images.id}`} underline="none" color="inherit">
             <CardCampain title={images.Name}/>
 
           </Link>
