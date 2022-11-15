@@ -64,13 +64,14 @@ export const InfoCampain = () => {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data().name);
+        console.log("Document data:", docSnap.data().date);
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
       }
 
       setDatosCampain(docSnap.data());
+      
     }
 
     obtenerDatos();
@@ -131,7 +132,7 @@ const ApproveCUSD = async ()=>{
 	const kit = await getConnectedKit();
 	const cUSD = await kit.contracts.getStableToken();
 
-	const approveTx = await cUSD.approve('0x1452A295254a01Cb027d20894cE0C96417d46570', (web3.utils.toWei(inputValue, 'ether'))).send({from: address, feeCurrency: cUSD.address});
+	const approveTx = await cUSD.approve('0x1452A295254a01Cb027d20894cE0C96417d46570',(web3.utils.toWei(inputValue, 'ether'))).send({from: address, feeCurrency: cUSD.address});
 	const approveReceipt = await approveTx.waitReceipt();
 
  console.log(approveReceipt);
@@ -205,7 +206,7 @@ const SendToContract = async ()=>{
             justifyContent: 'space-between'
             }}> 
 
-            <p>Creado por: Juan Pérez</p> 
+            <p>Creado por: {datosCampain.by}</p> 
 
             <Link href="https://explorer.celo.org/mainnet/address/0xd0B352bF3c007324A841D6226e447AC391877076/transactions"
             underline="none" 

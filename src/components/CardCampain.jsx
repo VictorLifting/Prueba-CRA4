@@ -34,19 +34,20 @@ export const CardCampain = (props) => {
         
         }}>
 
-    <Typography
-                component="h3"
-                variant="h6"
+              <Typography
+                component="h4"
+                variant=" "
                 color="inherit"
-                className="imageTitle"
+                className="imageTitle" 
+          
               >
                 {props.title}
                 <div className="imageMarked" />
               </Typography>
 
               <Typography
-                component="h6"
-                variant="inherit"
+               
+                variant="caption"
                 color="inherit"
                 className="imageTitle"
               >
