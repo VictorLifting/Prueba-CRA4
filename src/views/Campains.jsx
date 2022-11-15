@@ -125,7 +125,7 @@ export const Campains = () => {
             // title={images.title} url={images.url}
             //{...images}
             <Link component={RouterLink} to={`/infoCampain/${images.id}`} underline="none" color="inherit">
-            <CardCampain title={images.Name}/>
+            <CardCampain data={images}/>
 
           </Link>
             

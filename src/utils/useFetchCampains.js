@@ -35,6 +35,7 @@ export const useFetchCampains = () => {
          const owner =element.data().By;
          const title= element.data().name;
          const id = element.id;
+         const img = element.data().img;
   
           const Campain={
             Date: date,
@@ -43,6 +44,7 @@ export const useFetchCampains = () => {
             By: owner,
             Name: title,
             id: id,
+            img: img,
               
           }
 

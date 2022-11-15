@@ -198,7 +198,7 @@ const SendToContract = async ()=>{
 
         <Box>
             <h2>{datosCampain.name}</h2>
-          <img src="./imgs/roco.png" alt="" />
+          <img src={datosCampain.img} alt="" width={'500px'} />
 
           <Box sx={{
 

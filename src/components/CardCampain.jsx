@@ -24,7 +24,7 @@ export const CardCampain = (props) => {
         bottom: 0,
         backgroundSize: 'cover',
         backgroundPosition: 'center 40%',
-        backgroundImage: `url(./imgs/categories/animales.png)`,
+        backgroundImage: `url(${props.data.img})`,
         borderRadius:4,
         }}>
     </Box>
@@ -41,7 +41,7 @@ export const CardCampain = (props) => {
                 className="imageTitle" 
           
               >
-                {props.title}
+                {props.data.Name}
                 <div className="imageMarked" />
               </Typography>
 
