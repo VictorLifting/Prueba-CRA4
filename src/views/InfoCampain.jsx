@@ -246,14 +246,15 @@ const SendToContract = async ()=>{
           <Box sx={{
           backgroundColor:"#C58ADE",
           height:30,
-          width:`${collectedFunds}%`,
+          // width:`${collectedFunds}%`,
+          width:0,
           position:'relative'
         }}>
           </Box>
 
         </Box>
 
-      <p>Recaudado: $200.000/2.000.000</p>
+      <p>Recaudado: $0/{datosCampain.meta}</p>
         </Box>
 
         <Box>

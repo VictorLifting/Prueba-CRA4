@@ -13,7 +13,7 @@ export const HowToDonate = () => {
         },
         {
             title: "Paso 2. Escoge una categoría",
-            description:'  click en la categoría de tu preferencia para realizar tu donación. Ej: Salud',
+            description:'Haz click en la categoría de tu preferencia para realizar tu donación. Ej: Salud',
             img: './imgs/instructions/HowToDonate/2.png',
         },
         {

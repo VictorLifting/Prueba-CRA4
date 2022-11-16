@@ -51,7 +51,7 @@ export const CardCampain = (props) => {
                 color="inherit"
                 className="imageTitle"
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
+                {/* Lorem Ipsum is simply dummy text of the printing and typesetting */}
                 <div className="imageMarked" />
               </Typography>
 
@@ -66,7 +66,7 @@ export const CardCampain = (props) => {
                 <Box sx={{
                 backgroundColor:"#C58ADE",
                 height:15,
-                width:"30%",
+                width:"1%",
                 position:'relative'
               }}>
           </Box>
@@ -81,7 +81,7 @@ export const CardCampain = (props) => {
                 color="inherit"
                 className="imageTitle"
               >
-                 Recaudado: $200.000/2.000.000
+                 Recaudado: $0/{props.data.Goal}
                 
               </Typography> 
 

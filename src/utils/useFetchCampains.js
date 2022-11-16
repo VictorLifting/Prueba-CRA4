@@ -30,7 +30,7 @@ export const useFetchCampains = () => {
           //console.log(element.data().name);  
             //console.log(element.id)
          const date= element.data().Date;
-         const goal= element.data().Meta;
+         const goal= element.data().meta;
          const category = element.data().category;
          const owner =element.data().By;
          const title= element.data().name;
