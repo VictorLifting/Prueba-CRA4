@@ -10,7 +10,15 @@ import { useCelo } from '@celo/react-celo';
 //import theme from "../styles";
 //import qrc from "../imgs/Qr/image-qr-code.png";
 
-export const  ConnectWaModal = ({ onFin }) => {
+export const  ConnectWaModal = (props) => {
+
+  const handleClick=()=>{
+
+    connect()
+
+    props.cerrar()
+
+  }
 
   //use celo hook must always be inside the Celoprovider tree
 
@@ -22,6 +30,8 @@ export const  ConnectWaModal = ({ onFin }) => {
 
 
   return (
+
+
     <>
 
       <Box
@@ -78,7 +88,7 @@ export const  ConnectWaModal = ({ onFin }) => {
             type="submit"
             
             variant="contained"
-            onClick={()=> address ? destroy () : connect()}
+            onClick={handleClick}
             sx={{ mt: 3, mb: 2 }}
           >
             Conectar

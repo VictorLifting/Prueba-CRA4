@@ -226,12 +226,12 @@ const SendToContract = async ()=>{
         <Box sx={{
             display: 'flex'
         }}>
-        <strong>Categoria: </strong> <p> {datosCampain.category}</p>
+        <strong>Categoria: </strong> <p> &nbsp; {`${datosCampain.category}`}</p>
         </Box>
         <Box sx={{
             display: 'flex'
         }}>
-        <strong>Descripción: </strong> <p>{ datosCampain.description}</p>
+        <strong>Descripción: </strong> <p> &nbsp;{ datosCampain.description}</p>
         </Box>
 
         <Box>
@@ -341,7 +341,7 @@ const SendToContract = async ()=>{
                 aria-describedby="modal-modal-description"
             > 
             <Box sx={style}>
-            <ConnectWaModal/>
+            <ConnectWaModal cerrar={handleClose} />
             </Box>  
             </Modal>
             <Modal
