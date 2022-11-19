@@ -17,6 +17,10 @@ import db from '../firebase/firebasConfig';
 import { collection, getDoc, doc } from 'firebase/firestore';
 import Typography from '../components/Typography';
 
+//loader
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 
@@ -47,6 +51,15 @@ const style = {
 
 export const InfoCampain = () => {
   
+  //loaders
+  const [openLoad, setOpenLoad] = useState(false);
+
+  const handleCloseLoad = () => {
+    setOpenLoad(false);
+  };
+  const handleToggleLoad = () => {
+    setOpenLoad(!openLoad);
+  };
 
   //data campain
   const [datosCampain, setDatosCampain] = useState('')
@@ -129,11 +142,15 @@ const ApproveCUSD = async ()=>{
     console.log("seleccione un valor a donar")
     return
   }
+  //Loader
+  console.log("Cargando paso 1")
+  handleToggleLoad()
 
 	const kit = await getConnectedKit();
 	const cUSD = await kit.contracts.getStableToken();
 
-	const approveTx = await cUSD.approve('0x1452A295254a01Cb027d20894cE0C96417d46570',(web3.utils.toWei(inputValue, 'ether'))).send({from: address, feeCurrency: cUSD.address});
+	const approveTx = await cUSD.approve('0x1452A295254a01Cb027d20894cE0C96417d46570',(web3.utils.toWei(inputValue, 'ether')))
+  .send({from: address, feeCurrency: cUSD.address});
 	const approveReceipt = await approveTx.waitReceipt();
 
  console.log(approveReceipt);
@@ -162,6 +179,7 @@ const DataCampain =async ()=>{
 
 const SendToContract = async ()=>{
 
+  console.log("Cargando paso 2")
   const kit = await getConnectedKit();
   const cUSD = await kit.contracts.getStableToken();
   let contract = new kit.connection.web3.eth.Contract(contractABI, "0x1452A295254a01Cb027d20894cE0C96417d46570") 
@@ -181,6 +199,7 @@ const SendToContract = async ()=>{
         let receipt = await tx.waitReceipt();
          console.log(receipt);
             // //          //console.log(kit)
+            handleCloseLoad()
             handleOpen2()
     }
 
@@ -195,6 +214,15 @@ const SendToContract = async ()=>{
        p:10,
 
      }}>
+
+                  {/* Loader */}
+            <Backdrop
+              sx={{ color: '#fff', zIndex: 10 }}
+              open={openLoad}
+              onClick={handleCloseLoad}
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop>
 
 
         <Box>
@@ -385,7 +413,10 @@ const SendToContract = async ()=>{
             <ThanksModal/>
             </Box>  
             </Modal>
-        </Box>
+
+
+
+              </Box>
 
 
         </Box>
