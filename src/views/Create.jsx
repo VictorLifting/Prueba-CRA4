@@ -48,7 +48,7 @@ const categories = [
 
 export const Create = (props) => {
 
-    const [category, setCategories] = useState('EUR');
+    const [category, setCategories] = useState(' ');
 
         //modal Donar  
       const [open, setOpen] = useState(true);

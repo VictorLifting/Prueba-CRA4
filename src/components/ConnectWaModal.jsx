@@ -69,12 +69,13 @@ export const  ConnectWaModal = (props) => {
           justifyContent:"space-between"
         }}
       >
-        <Link component={RouterLink} to={`/instructions`} underline="none" color="inherit" sx={{
+        <Link component={RouterLink} to={`/helpcenter`} underline="none" color="inherit" target={"_blank"} sx={{
           mr:2,
         }}>
         <Button
             type="submit"
             fullWidth
+            color="secondary"
             variant="outlined"
             sx={{ mt: 3, mb: 2 }}
           > 
@@ -86,7 +87,7 @@ export const  ConnectWaModal = (props) => {
       
       <Button
             type="submit"
-            
+            color="secondary"
             variant="contained"
             onClick={handleClick}
             sx={{ mt: 3, mb: 2 }}

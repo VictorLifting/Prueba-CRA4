@@ -15,6 +15,7 @@ import { useParams } from 'react-router-dom';
 //firebase
 import db from '../firebase/firebasConfig';
 import { collection, getDoc, doc } from 'firebase/firestore';
+import Typography from '../components/Typography';
 
 
 
@@ -197,22 +198,42 @@ const SendToContract = async ()=>{
 
 
         <Box>
-            <h2>{datosCampain.name}</h2>
+
+        <Typography
+            color="#C58ADE"
+            align="left"
+           variant="h4"
+          sx={{ mb: 1, }}
+        >
+            {datosCampain.name}
+              
+            </Typography>
+
           <img src={datosCampain.img} alt="" width={'500px'} />
 
           <Box sx={{
 
             display: 'flex',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            alignItems:"center",
+             mb:1
             }}> 
 
-            <p>Creado por: {datosCampain.by}</p> 
+            <p> <strong>Creado por: </strong> {datosCampain.by} </p> 
 
             <Link href="https://explorer.celo.org/mainnet/address/0xd0B352bF3c007324A841D6226e447AC391877076/transactions"
             underline="none" 
             color="inherit"
             target={"_blank"}>
-              {"Ver donaciones" } 
+
+              <Button
+              color="secondary"
+              type="button"
+              variant="text"
+              sx={{}}>
+                Ver donaciones
+            </Button>
+              
             
             </Link> 
 
@@ -221,17 +242,23 @@ const SendToContract = async ()=>{
 
         </Box>
         <Box sx={{
-            p:4,
+            p:6,
         }}>
         <Box sx={{
             display: 'flex'
         }}>
-        <strong>Categoria: </strong> <p> &nbsp; {`${datosCampain.category}`}</p>
+        <strong>Categoria: </strong>  
+        <p> 
+          &nbsp; 
+          {`${datosCampain.category}`}
+        
+          </p>
         </Box>
         <Box sx={{
-            display: 'flex'
+            display: 'block',
+            my:2
         }}>
-        <strong>Descripción: </strong> <p> &nbsp;{ datosCampain.description}</p>
+        <strong>Descripción: </strong> <p>  { datosCampain.description}</p>
         </Box>
 
         <Box>
@@ -254,7 +281,7 @@ const SendToContract = async ()=>{
 
         </Box>
 
-      <p>Recaudado: $0/{datosCampain.meta}</p>
+      <p>Recaudado: $0 / ${datosCampain.meta} Cusd</p>
         </Box>
 
         <Box>
@@ -267,6 +294,7 @@ const SendToContract = async ()=>{
               onClick={handleOpen}
               type="button"
               variant="contained"
+              color="secondary"
               sx={{ mt: 3, mb: 2 }}
             >
               Quiero Donar!
@@ -310,6 +338,7 @@ const SendToContract = async ()=>{
         {address? 
             <Button onClick={()=> address ? destroy () : connect()} type="button"
               variant="outlined"
+              color="secondary"
               sx={{ mt: 3, mb: 2, width:"48%"}}>
                 Desconectar
             </Button>
@@ -325,7 +354,9 @@ const SendToContract = async ()=>{
 			{address ? (
                <Button onClick={ApproveCUSD} type="button"
              // <Button onClick={handleOpen2} type="button"
-              variant="contained" sx={{ mt: 3, mb: 2, width:"48%" }}>Donar</Button>
+              variant="contained" 
+              color="secondary"
+              sx={{ mt: 3, mb: 2, width:"48%" }}>Donar</Button>
             ) : (
             " " )}
 
