@@ -46,11 +46,14 @@ export const SliderHome = ({ imagenes }) => {
                         align="left"
                         variant="h4" 
                         sx={{
-                            mb:3
+                            mb:3,
+                            fontFamily:"Raleway", 
+                            fontWeight:"500"
                         }}>
                          {imagen.title}
                          </Typography>
-                        <Typography>{imagen.description}</Typography>
+                        <Typography sx={{fontFamily:"Raleway", 
+                            fontWeight:"200", fontSize:"21px"}}>{imagen.description}</Typography>
                         </Box>
                         <Button
                         color="secondary"

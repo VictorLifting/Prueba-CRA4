@@ -2,13 +2,15 @@ import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import MuiTypography from '@mui/material/Typography';
 
+import '../index.css';
+
 const markClassesMapping = {
   center: {
     h1: '',
     h2: 'OnePirateTypography-markedH2Center',
     h3: 'OnePirateTypography-markedH3Center',
     h4: 'OnePirateTypography-markedH4Center',
-    h5: '',
+    h5: 'Poppins',
     h6: '',
   },
   left: {
@@ -16,7 +18,7 @@ const markClassesMapping = {
     h2: '',
     h3: '',
     h4: '',
-    h5: '',
+    h5: 'Poppins',
     h6: 'OnePirateTypography-markedH6Left',
   },
   none: {
@@ -65,7 +67,7 @@ const variantMapping = {
   h2: 'h1',
   h3: 'h1',
   h4: 'h1',
-  h5: 'h3',
+  h5: 'h5',
   h6: 'h2',
   subtitle1: 'h3',
 };

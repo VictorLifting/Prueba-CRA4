@@ -1,5 +1,7 @@
 import { Box, Button } from '@mui/material'
 import React from 'react'
+import { Link as RouterLink} from "react-router-dom";
+import Link from '@mui/material/Link';
 import Typography from './Typography'
 
 export const EmptyCreate = () => {
@@ -18,6 +20,7 @@ export const EmptyCreate = () => {
     Inicia sesión para continuar o de lo contrario has click en registrarme para crear una cuenta.
     </Typography>
     <Box sx={{display:'flex' }}>
+    <Link component={RouterLink} to="/register" underline="none" color="inherit"> 
     <Button 
               onClick={{}}
               type="button"
@@ -27,6 +30,8 @@ export const EmptyCreate = () => {
             >
               Registrarme
     </Button>
+    </Link>
+    <Link component={RouterLink} to="/login" underline="none" color="inherit"> 
     <Button 
               onClick={{}}
               type="button"
@@ -36,6 +41,7 @@ export const EmptyCreate = () => {
             >
               Iniciar Sesión
     </Button>
+    </Link>
     </Box>
     </Box>
   )

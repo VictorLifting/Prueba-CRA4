@@ -37,15 +37,17 @@ export const Banner2 = () => {
         Crear campaña
         </Button>
         </Link>
+        <Link component={RouterLink} to="/about" underline="none" color="inherit">
         <Button
         type="button"
         variant="outlined"
-        color="secondary"
+        color="inherit"
         sx={{ mt: 3, mb: 2 }}
         >
           
         Cómo funciona
         </Button>
+        </Link>
 
 
 </Box>

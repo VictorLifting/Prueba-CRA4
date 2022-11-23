@@ -14,11 +14,11 @@ const item = {
 function ProductValues() {
   return (
     <>
-     <Typography variant='h5' sx={{ my: 15, textAlign:'center' }}>
+     <Typography variant='h5' sx={{ my: 15, textAlign:'center', fontFamily:"Poppins", fontWeight:"600"}}>
      ¿Por qué nosotros? 
       </Typography>
 
-      <Container sx={{ mt: 5, mb: 15, display: 'flex', position: 'relative', alignItems:'center', textAlign:'center'}}>
+      <Container sx={{ mt: 5, mb: 15, display: 'flex', position: 'relative', alignItems:'center', textAlign:'center', }}>
 
         <Grid container spacing={5}>
           <Grid item xs={12} md={4}>
@@ -29,10 +29,10 @@ function ProductValues() {
                 alt="suitcase"
                 sx={{ height: 55 }}
               />
-              <Typography variant="h6" sx={{ my: 5 }}>
+              <Typography variant="h6" sx={{ my: 5, fontFamily:"Raleway", fontWeight:"600"}}>
                Confianza
               </Typography>
-              <Typography>
+              <Typography sx={{fontFamily:"Poppins" }}>
                 {
                   'Nuestras campañas son revisadas y validadas por un excelente equipo, para así evitar estáfas.'
                 }
@@ -48,10 +48,10 @@ function ProductValues() {
                 alt="graph"
                 sx={{ height: 55 }}
               />
-              <Typography variant="h6" sx={{ my: 5 }}>
+              <Typography variant="h6" sx={{ my: 5, fontFamily:"Raleway", fontWeight:"600"}}>
                 Seguridad
               </Typography>
-              <Typography>
+              <Typography sx={{fontFamily:"Poppins" }}>
                 {
                   'Gracias a la tecnología blockchain las donaciones son mucho más seguras.'
                 }
@@ -67,10 +67,10 @@ function ProductValues() {
                 alt="clock"
                 sx={{ height: 55 }}
               />
-              <Typography variant="h6" sx={{ my: 5 }}>
+              <Typography variant="h6" sx={{ my: 5, fontFamily:"Raleway", fontWeight:"600"  }}>
                 Transparencia
               </Typography>
-              <Typography >
+              <Typography sx={{fontFamily:"Poppins" }}>
                 {'Al donar con criptomonedas aseguramos la transparencia entre donante y donado.'}
               </Typography>
             </Box>

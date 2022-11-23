@@ -5,6 +5,9 @@ import TypewriterComponent from 'typewriter-effect';
 import { DonateModal } from '../components/DonateModal';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
+import { createTheme, ThemeProvider  } from '@mui/material/styles';
+
+//@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;0,900;1,400;1,600&display=swap');
 
 
 const backgroundImage =
@@ -22,9 +25,22 @@ const backgroundImage =
 
   };
 
+
+
  
 export default function ProductHero() {
 
+
+  const theme = createTheme({
+    palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#C58ADE',
+      // dark: will be calculated from palette.primary.main,
+       contrastText: "#fff"
+    },
+  }
+  });
 
   //modal Donar  
   const [open, setOpen] = useState(false);
@@ -33,6 +49,7 @@ export default function ProductHero() {
   const handleClose = () => setOpen(false);
 
   return (
+    <ThemeProvider theme={theme}>
     <Box sx={{display: 'flex', backgroundColor:'#F6F8FF',position: 'relative'}}
 
       // sxBackground={{
@@ -52,7 +69,7 @@ export default function ProductHero() {
         src={backgroundImage}
         alt="increase priority"
       />
-      <Typography color="#C58ADE" align="left" variant="h3" >
+      <Typography color="#C58ADE" sx={{fontFamily:"Poppins", fontSize:"900"}} align="left" variant="h3" >
        Dona de manera
       <TypewriterComponent
       onInit={(typewriter)=>{
@@ -72,14 +89,14 @@ export default function ProductHero() {
         color="#3D3D3D"
         align="left"
         variant="h5"
-        sx={{ mb: 4, mt: { sx: 2, sm: 5 } }}
+        sx={{ mb: 4, mt: { sx: 2, sm: 5, fontFamily:"Raleway", fontSize:"900" } }}
       >
        Lleva un rastreo de tus donaciones y dinero en tiempo real. Al incorporar la
        tecnología blockchain podemos crear campañas mucho más confiables y seguras.
       </Typography>
       <Button
         onClick={handleOpen}
-        color="secondary"
+        color= "primary"
         variant="contained"
         size="large"
         component="a"
@@ -107,5 +124,6 @@ export default function ProductHero() {
 
       </Box>
     </Box>
+    </ThemeProvider>
   );
 }

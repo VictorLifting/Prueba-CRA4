@@ -70,7 +70,7 @@ export const CarrouselHome = () => {
             <Box sx={{marginBottom:20}}>
 
             <Box sx={{p:0}}>
-            <Typography variant="h5" sx={{ my: 10, textAlign:'center' }}>
+            <Typography variant="h5" sx={{ my: 10, textAlign:'center', fontFamily:"Poppins", fontWeight:"600"}}>
              ¿Cómo funciona? 
             </Typography>
             </Box>
