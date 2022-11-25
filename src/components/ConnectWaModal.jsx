@@ -42,19 +42,20 @@ export const  ConnectWaModal = (props) => {
           alignItems: "center",
           bgcolor: "background.backWhite",
           borderRadius: "1rem",
-          p: "5rem",
+          p: "4rem",
           zIndex:-10,
           textAlign: "center",
           boxShadow: "rgb(162, 179, 198) 0px 24px 42px -12px;",
         }}
       >
-        <Box component="h2">Conecta tu billetera
+        <Box component="h2" sx={{color:"#C58ADE", mb:5}}>
+          Conecta tu billetera
           {/* {onFin === qrc
             ? "Improve your front-end skills by building projects"
             : "This is the resulting QR Code"} */}
         </Box>
 
-        <Box component="p">Si ya tienes una wallet y posees celo dólar (CUSD) en ella te invitamos a conectar tu billetera para realizar la donación.
+        <Box component="p" sx={{ mb:3}}>Si ya tienes una wallet y posees celo dólar (CUSD) en ella te invitamos a conectar tu billetera para realizar la donación.
                   De lo contrario te recomendamos descargar Valora. 
                   En nuestra sección de recursos podrás encontrar varios tutoriales que te pueden ser útiles.
           {/* {onFin === qrc

@@ -48,6 +48,8 @@ function App() {
 
 
 
+
+
   // //firebase user state
    const auth = getAuth();
 
@@ -116,7 +118,9 @@ const agregarDatos = async()=>{
 
 
   return (
+    
 <>
+
 <Header usuario={usuario}/>
   <Routes>
   

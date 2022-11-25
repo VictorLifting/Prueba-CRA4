@@ -36,6 +36,7 @@ const kit2 = ContractKit.newKitFromWeb3(web3);
 
 
 
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -51,6 +52,8 @@ const style = {
 
 export const InfoCampain = () => {
   
+  //contract Fundraising
+  const contractDreamUp ='0x40d4dED645DdbcCFF56881839233ebF383B69713';
   //loaders
   const [openLoad, setOpenLoad] = useState(false);
 
@@ -78,13 +81,16 @@ export const InfoCampain = () => {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data().date);
+        console.log("Document data:", docSnap.data().idContract);
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
       }
 
       setDatosCampain(docSnap.data());
+      DataCampain(docSnap.data().idContract);
+      
+    
       
     }
 
@@ -149,7 +155,7 @@ const ApproveCUSD = async ()=>{
 	const kit = await getConnectedKit();
 	const cUSD = await kit.contracts.getStableToken();
 
-	const approveTx = await cUSD.approve('0x1452A295254a01Cb027d20894cE0C96417d46570',(web3.utils.toWei(inputValue, 'ether')))
+	const approveTx = await cUSD.approve(contractDreamUp,(web3.utils.toWei(inputValue, 'ether')))
   .send({from: address, feeCurrency: cUSD.address});
 	const approveReceipt = await approveTx.waitReceipt();
 
@@ -160,15 +166,15 @@ const ApproveCUSD = async ()=>{
 
 
  useEffect(()=>{
-  DataCampain();
+ // DataCampain();
     },[]);
 
 
-const DataCampain =async ()=>{
+const DataCampain = async ( projectIndex) =>{
 
   //const kit = await getConnectedKit();
-  let contract = new kit2.connection.web3.eth.Contract(contractABI, "0x1452A295254a01Cb027d20894cE0C96417d46570") 
-  let data = await contract.methods.projects("0").call();
+  let contract = new kit2.connection.web3.eth.Contract(contractABI, contractDreamUp) 
+  let data = await contract.methods.projects(projectIndex).call();
    let funds = await data.funds;
    let fundraisingGoal = await data.fundraisingGoal;
    let fundsConverted = (funds*100)/fundraisingGoal;
@@ -177,12 +183,13 @@ const DataCampain =async ()=>{
 }
 
 
-const SendToContract = async ()=>{
+const SendToContract = async () => {
 
   console.log("Cargando paso 2")
+  console.log(datosCampain.idContract)
   const kit = await getConnectedKit();
   const cUSD = await kit.contracts.getStableToken();
-  let contract = new kit.connection.web3.eth.Contract(contractABI, "0x1452A295254a01Cb027d20894cE0C96417d46570") 
+  let contract = new kit.connection.web3.eth.Contract(contractABI, contractDreamUp) 
   //await contract.methods.recibirSaldo("0x1").send({from: address})
 //   let name = await contract.methods.getName().call();
 //  console.log(name);
@@ -190,7 +197,7 @@ const SendToContract = async ()=>{
 //  let name = await contract.methods.setName("ether").send({from: address});
 //       console.log(name);
 		// //console.log(cUSD)
-        let txObject = await contract.methods.fundProject("0", inputValue);
+        let txObject = await contract.methods.fundProject(datosCampain.idContract, inputValue);
 
         //      // Send the transaction
       // let tx = await kit2.sendTransactionObject(txObject, { from: address, value: (web3.utils.toWei('0.5', 'ether')), feeCurrency: cUSD.address, });
@@ -231,10 +238,10 @@ const SendToContract = async ()=>{
             color="#C58ADE"
             align="left"
            variant="h4"
-          sx={{ mb: 1, }}
+          sx={{ mb: 1,fontFamily:"Poppins", fontWeight:"600" }}
         >
             {datosCampain.name}
-              
+          
             </Typography>
 
           <img src={datosCampain.img} alt="" width={'500px'} />
@@ -301,8 +308,8 @@ const SendToContract = async ()=>{
           <Box sx={{
           backgroundColor:"#C58ADE",
           height:30,
-          // width:`${collectedFunds}%`,
-          width:0,
+           width:`${collectedFunds}%`,
+          // width:0,
           position:'relative'
         }}>
           </Box>

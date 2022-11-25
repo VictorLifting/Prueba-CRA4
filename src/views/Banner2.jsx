@@ -3,10 +3,29 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import { Link as RouterLink} from "react-router-dom";
 import Typography from '../components/Typography';
+import { createTheme, ThemeProvider  } from '@mui/material/styles';
 
 export const Banner2 = () => {
-  return (
 
+
+  const theme = createTheme({
+    palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#C58ADE',
+      // dark: will be calculated from palette.primary.main,
+       contrastText: "#fff"
+    },
+
+    white:{
+      main: '#FFFFFF',
+      contrastText:'#C58ADE'
+    }
+  }
+  });
+
+  return (
+<ThemeProvider theme={theme}>
     <Box sx={{
         display:'flex',
         justifyContent:'space-between',
@@ -17,8 +36,8 @@ export const Banner2 = () => {
     }}>
 
     <Box> 
-    <Typography variant="h3" color="#ffffff" sx={{ mb: 2 }} >¿Tienes en mente una campaña? </Typography>
-    <Typography variant="h5" color="#ffffff">Hazla realidad con nosotros! </Typography>
+    <Typography variant="h3" color="#ffffff" sx={{ mb: 2, fontFamily:"Poppins", fontWeight:"600" }} >¿Tienes en mente una campaña? </Typography>
+    <Typography variant="h5" color="#ffffff" sx={{fontFamily:"Poppins"}}>Hazla realidad con nosotros! </Typography>
     
     <p></p>
     <Box sx={{
@@ -31,7 +50,7 @@ export const Banner2 = () => {
         <Button 
         type="button"
         variant="contained"
-        color="secondary"
+        color="white"
         sx={{ mt: 3, mb: 2 }}
         >
         Crear campaña
@@ -41,7 +60,7 @@ export const Banner2 = () => {
         <Button
         type="button"
         variant="outlined"
-        color="inherit"
+        color="white"
         sx={{ mt: 3, mb: 2 }}
         >
           
@@ -63,7 +82,7 @@ export const Banner2 = () => {
 
 </Box>
 
-
+</ThemeProvider>
 
   )
 }

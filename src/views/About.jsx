@@ -7,17 +7,17 @@ export const About = () => {
   return (
 
     <Box sx={{p:15}}>
-        <Typography variant={'h4'} color={'#C58ADE'}>
+        <Typography variant={'h4'} color={'#C58ADE'} sx={{fontFamily:"Poppins", fontWeight:"600"}}>
         Sobre nosotros
         </Typography>
 
         <Box sx={{display:'flex', justifyContent:'space-between', alignItems:'center'}} >
 
         <Box sx={{width:'50%'}}>
-        <Typography variant={'h6'}>
+        <Typography variant={'h6'} sx={{fontFamily:"Raleway", fontWeight:"600", mb:2}}>
             Misión
         </Typography>
-        <Typography>
+        <Typography sx={{fontFamily:"Poppins"}}>
             DreamUp es una iniciativa que surge como solución a
             la recaudación y donación de fondos de manera transparente,
             segura y confiable. Le apuntamos a un futuro en donde las personas
@@ -45,10 +45,10 @@ export const About = () => {
         
         </Box>
         <Box sx={{width:'50%'}}>
-            <Typography variant={'h6'}>
+            <Typography variant={'h6'} sx={{fontFamily:"Raleway", fontWeight:"600", mb:2}}>
             ¿Por qué cripto?
             </Typography>
-            <Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>
             Utilizamos la tecnología blockchain, en específico la red de CELO y su moneda celo dólar (CUSD),
             para poder llevar a cabo una trazabilidad de manera transparente de cada una de las donaciones.
             Si quieres saber más sobre la red de CELO y el celo dólar te invitamos a ver nuestra sección de
