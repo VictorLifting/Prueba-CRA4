@@ -40,7 +40,7 @@ export const HowToValora = () => {
     <Box sx={{marginBottom:20}}>
 
         <Box  sx={{px:5, pt:10}}>
-        <Typography variant="h5" color="#C58ADE">¿Cómo recargar una cuenta en Valora?</Typography>
+        <Typography variant="h5" color="#C58ADE" sx={{fontFamily:"Poppins", fontWeight:"600"}}>¿Cómo recargar una cuenta en Valora?</Typography>
 
         </Box>
 

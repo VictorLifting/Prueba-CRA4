@@ -54,7 +54,7 @@ export const HowToCoinbase = () => {
     <Box sx={{marginBottom:20}}>
 
         <Box  sx={{px:5, pt:10}}>
-        <Typography variant="h5" color="#C58ADE">¿Cómo crear una cuenta de Coinbase?</Typography>
+        <Typography variant="h5" color="#C58ADE" sx={{fontFamily:"Poppins", fontWeight:"600"}}>¿Cómo crear una cuenta de Coinbase?</Typography>
 
         </Box>
 

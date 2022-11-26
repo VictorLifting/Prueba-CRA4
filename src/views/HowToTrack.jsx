@@ -31,7 +31,7 @@ export const HowToTrack = () => {
     <Box sx={{marginBottom:20}}>
 
         <Box  sx={{px:5, pt:10}}>
-        <Typography variant="h5" color="#C58ADE">¿Cómo ver las donaciones hechas a una campaña?</Typography>
+        <Typography variant="h5" color="#C58ADE" sx={{fontFamily:"Poppins", fontWeight:"600"}}>¿Cómo ver las donaciones hechas a una campaña?</Typography>
 
         </Box>
 

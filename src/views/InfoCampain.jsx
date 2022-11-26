@@ -1,13 +1,13 @@
 import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Button, FormControl, FormGroup, InputAdornment, InputLabel, Link, OutlinedInput } from '@mui/material';
+import { Button, createTheme, FormControl, FormGroup, InputAdornment, InputLabel, Link, OutlinedInput, ThemeProvider } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import { useState, useEffect } from 'react';
 import { ConnectWaModal } from '../components/ConnectWaModal';
 import { ThanksModal } from '../components/ThanksModal';
 //contract ABI
-import contractABI from '../utils/ABI';
+import contractABI from '../utils/ABI'; 
 //celo
 import { useCelo } from '@celo/react-celo';
 //react router
@@ -51,6 +51,24 @@ const style = {
 
 
 export const InfoCampain = () => {
+
+
+  const theme = createTheme({
+    palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#C58ADE',
+      // dark: will be calculated from palette.primary.main,
+       contrastText: "#fff"
+    },
+
+    white:{
+      main: '#FFFFFF',
+      contrastText:'#C58ADE'
+    }
+  }
+  });
+
   
   //contract Fundraising
   const contractDreamUp ='0x40d4dED645DdbcCFF56881839233ebF383B69713';
@@ -213,7 +231,7 @@ const SendToContract = async () => {
 
   return (
 
-
+  <ThemeProvider theme={theme}>
     <Box    
 
     sx={{
@@ -329,7 +347,7 @@ const SendToContract = async () => {
               onClick={handleOpen}
               type="button"
               variant="contained"
-              color="secondary"
+              color="primary"
               sx={{ mt: 3, mb: 2 }}
             >
               Quiero Donar!
@@ -372,8 +390,8 @@ const SendToContract = async () => {
 
         {address? 
             <Button onClick={()=> address ? destroy () : connect()} type="button"
-              variant="outlined"
-              color="secondary"
+              variant="contained"
+              color="white"
               sx={{ mt: 3, mb: 2, width:"48%"}}>
                 Desconectar
             </Button>
@@ -390,7 +408,7 @@ const SendToContract = async () => {
                <Button onClick={ApproveCUSD} type="button"
              // <Button onClick={handleOpen2} type="button"
               variant="contained" 
-              color="secondary"
+              color="primary"
               sx={{ mt: 3, mb: 2, width:"48%" }}>Donar</Button>
             ) : (
             " " )}
@@ -430,7 +448,7 @@ const SendToContract = async () => {
 
 
     </Box>
-
+    </ThemeProvider>
     
 
   )

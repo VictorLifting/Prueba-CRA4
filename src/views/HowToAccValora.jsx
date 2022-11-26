@@ -45,7 +45,7 @@ export const HowToAccValora = () => {
     <Box sx={{marginBottom:20}}>
 
         <Box  sx={{px:5, pt:10}}>
-        <Typography variant="h5" color="#C58ADE">¿Cómo comprar CUSD vía Moonpay?</Typography>
+        <Typography variant="h5" color="#C58ADE" sx={{fontFamily:"Poppins", fontWeight:"600"}}>¿Cómo comprar CUSD vía Moonpay?</Typography>
 
         </Box>
 

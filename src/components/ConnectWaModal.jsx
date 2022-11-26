@@ -1,5 +1,5 @@
 import { Box } from "@mui/system";
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material";
 import Button from '@mui/material/Button';
 import { Link as RouterLink} from "react-router-dom";
 import Link from '@mui/material/Link';
@@ -11,6 +11,22 @@ import { useCelo } from '@celo/react-celo';
 //import qrc from "../imgs/Qr/image-qr-code.png";
 
 export const  ConnectWaModal = (props) => {
+
+  const theme = createTheme({
+    palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#C58ADE',
+      // dark: will be calculated from palette.primary.main,
+       contrastText: "#fff"
+    },
+
+    white:{
+      main: '#FFFFFF',
+      contrastText:'#C58ADE'
+    }
+  }
+  });
 
   const handleClick=()=>{
 
@@ -33,7 +49,7 @@ export const  ConnectWaModal = (props) => {
 
 
     <>
-
+ <ThemeProvider theme={theme}>
       <Box
         component="div"
         sx={{
@@ -76,11 +92,10 @@ export const  ConnectWaModal = (props) => {
         <Button
             type="submit"
             fullWidth
-            color="secondary"
-            variant="outlined"
+            color="white"
+            variant="contained"
             sx={{ mt: 3, mb: 2 }}
           > 
-          
             Ver tutoriales
             
       </Button>
@@ -88,7 +103,7 @@ export const  ConnectWaModal = (props) => {
       
       <Button
             type="submit"
-            color="secondary"
+            color="primary"
             variant="contained"
             onClick={handleClick}
             sx={{ mt: 3, mb: 2 }}
@@ -98,7 +113,7 @@ export const  ConnectWaModal = (props) => {
   
       </Box>
       </Box>
-
+      </ThemeProvider>
 
       </>
   );

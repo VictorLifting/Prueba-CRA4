@@ -30,7 +30,7 @@ export const CardCampain = (props) => {
     </Box>
 
     <Box sx={{ 
-       padding:1
+       padding:2
         
         }}>
 
@@ -60,7 +60,6 @@ export const CardCampain = (props) => {
                 height:15,
                 position:'relative',
                 mt:2,
-                mx:1,
                 mb:1
               }}>
                 <Box sx={{
@@ -85,7 +84,7 @@ export const CardCampain = (props) => {
                 
               </Typography> 
 
-              <ButtonBase>Ver mas {'>'} </ButtonBase>
+              <ButtonBase sx={{color:"#C58ADE", fontWeight:"bold"}}>Ver mas {'>'} </ButtonBase>
 
 
               </Box>
