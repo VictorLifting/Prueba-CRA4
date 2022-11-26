@@ -12,6 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink} from "react-router-dom";
 //firebase
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Checkbox, FormControlLabel } from '@mui/material';
 
 
 // function Copyright(props) {
@@ -27,7 +28,16 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 //   );
 // }
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+  primary: {
+    // light: will be calculated from palette.primary.main,
+    main: '#C58ADE',
+    // dark: will be calculated from palette.primary.main,
+     contrastText: "#fff"
+  },
+}
+});
 
 export default function Register() {
 
@@ -99,9 +109,14 @@ export default function Register() {
           }}
         >
 
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" sx={{fontFamily:"Poppins", color:"#C58ADE",fontWeight:"600", mb:2}}>
            Regístrate
           </Typography>
+
+          <Typography  sx={{fontFamily:"Poppins",  fontWeight:"400",  mb:2}}>
+            para poder continuar.
+          </Typography>
+
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             {/* <TextField
               margin="normal"
@@ -142,7 +157,16 @@ export default function Register() {
               type="password"
               id="passwordConfirm"
               autoComplete="current-password"
-            />                       
+            />     
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Aceptar términos y condiciones."
+            />       
+
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Acepto la política de privacidad."
+            />                                    
 
             <Button
               type="submit"
@@ -154,7 +178,7 @@ export default function Register() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link component={RouterLink} to="/login" variant="body2">
+                <Link component={RouterLink} to="/login" variant="body2" sx={{fontFamily:"Poppins"}}>
                   ¿Ya tienes una cuenta?  Iniciar sesión
                 </Link>
               </Grid>

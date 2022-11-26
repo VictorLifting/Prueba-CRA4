@@ -27,7 +27,16 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 //   );
 // }
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+  primary: {
+    // light: will be calculated from palette.primary.main,
+    main: '#C58ADE',
+    // dark: will be calculated from palette.primary.main,
+     contrastText: "#fff"
+  },
+}
+});
 
 export default function SignIn(props) {
 
@@ -83,8 +92,12 @@ export default function SignIn(props) {
           }}
         >
 
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" sx={{fontFamily:"Poppins", color:"#C58ADE", fontWeight:"600", mb:2}}>
            Iniciar sesión
+          </Typography>
+
+          <Typography  sx={{fontFamily:"Poppins",  fontWeight:"400",  mb:2}}>
+            para poder continuar.
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -121,12 +134,12 @@ export default function SignIn(props) {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" sx={{fontFamily:"Poppins"}}>
                   ¿Recordar contraseña?
                 </Link>
               </Grid>
               <Grid item>
-                <Link component={RouterLink} to="/Register" variant="body2">
+                <Link component={RouterLink} to="/Register" variant="body2" sx={{fontFamily:"Poppins"}}>
                   {"¿Aún no tienes una cuenta?, Regístrate "}
                 </Link>
               </Grid>

@@ -33,8 +33,8 @@ export const SliderModal = ({ imagenes }) => {
                         <Box 
                         sx={{display: 'flex', flexDirection: 'column',justifyContent: 'center',}}>
 
-                        <Typography variant='h4' color="#C58ADE" sx={{mb:4}}>{imagen.title}</Typography>
-                        <Typography sx={{mb:10}}>{imagen.description}</Typography>
+                        <Typography variant='h5' color="#C58ADE" sx={{mb:4, fontFamily:"Poppins", fontWeight:"600"}}>{imagen.title}</Typography>
+                        <Typography sx={{mb:10, fontFamily:"Poppins"}}>{imagen.description}</Typography>
 
                         <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center',justifyContent: 'center' }}>
                        

@@ -1,4 +1,4 @@
-import {Box, TextField, FormGroup, Button, Modal} from "@mui/material"
+import {Box, TextField, FormGroup, Button, Modal, createTheme, ThemeProvider} from "@mui/material"
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from "react";
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -48,6 +48,17 @@ const categories = [
 
 export const Create = (props) => {
 
+  const theme = createTheme({
+    palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#C58ADE',
+      // dark: will be calculated from palette.primary.main,
+       contrastText: "#fff"
+    },
+  }
+  });
+
     const [category, setCategories] = useState(' ');
 
         //modal Donar  
@@ -95,6 +106,7 @@ const addCampain = async(name, description,category,goal,userId)=>{
 }
 
   return (
+    <ThemeProvider theme={theme}>
     <div style={{ width: '100%' }}>
 
 
@@ -199,5 +211,6 @@ const addCampain = async(name, description,category,goal,userId)=>{
 
         
     </div>
+    </ThemeProvider>
   )
 }
