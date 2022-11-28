@@ -36,6 +36,8 @@ export const SliderModal = ({ imagenes }) => {
                         <Typography variant='h5' color="#C58ADE" sx={{mb:4, fontFamily:"Poppins", fontWeight:"600"}}>{imagen.title}</Typography>
                         <Typography sx={{mb:10, fontFamily:"Poppins"}}>{imagen.description}</Typography>
 
+                        
+
                         <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center',justifyContent: 'center' }}>
                        
                         <Button 
@@ -45,6 +47,7 @@ export const SliderModal = ({ imagenes }) => {
                         ←
                         </Button>
                         <img key={index} src={imagen.img} alt="imagen" />
+                        
                         <Button
                         color="secondary"
                         variant="outlined"
@@ -53,7 +56,25 @@ export const SliderModal = ({ imagenes }) => {
                         </Button>
 
                         </Box>
-                       
+                        {imagenActual === cantidad - 1 ? 
+                        
+                            <Box sx={{mt:3}}>
+
+                            <Button
+                            color= "primary"
+                            variant="outlined"
+                            sx={{ minWidth: 200,mr:2 }}>
+                               Ver paso a paso
+                             </Button>
+                                
+                            <Button
+                            color= "primary"
+                            variant="contained"
+                            sx={{ minWidth: 200 }}>
+                               Listo
+                             </Button>
+                             </Box>
+                         : ""}
                         </Box>
 
                       

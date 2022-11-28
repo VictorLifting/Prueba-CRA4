@@ -256,7 +256,7 @@ const SendToContract = async () => {
             color="#C58ADE"
             align="left"
            variant="h4"
-          sx={{ mb: 1,fontFamily:"Poppins", fontWeight:"600" }}
+          sx={{ mb: 2,fontFamily:"Poppins", fontWeight:"600" }}
         >
             {datosCampain.name}
           

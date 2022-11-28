@@ -49,7 +49,7 @@ export const  DonateModal = ({ onFin }) => {
           alignItems: "center",
           bgcolor: "background.backWhite",
           borderRadius: "1rem",
-          p: "5rem",
+          p: "3.2rem",
           textAlign: "center",
           boxShadow: "rgb(162, 179, 198) 0px 24px 42px -12px;",
         }}
