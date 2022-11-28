@@ -26,13 +26,13 @@ const [expanded, setExpanded] = useState(false);
         aria-controls="panel1bh-content"
         id="panel1bh-header"
       >
-        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0 }}>
+        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0 , fontFamily:"Poppins"}}>
         ¿Qué es dreamUp?
         </Typography>
        
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography sx={{fontFamily:"Poppins"}}>
         DreamUp es una plataforma que permite la
         creación de campañas de recaudación de fondos.
         Nos diferenciamos de otras plataformas ya que utilizamos
@@ -47,11 +47,11 @@ const [expanded, setExpanded] = useState(false);
         aria-controls="panel2bh-content"
         id="panel2bh-header"
       >
-        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0 }}>¿Es dreamUp seguro?</Typography>
+        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0, fontFamily:"Poppins" }}>¿Es dreamUp seguro?</Typography>
 
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography sx={{fontFamily:"Poppins"}}>
         Sí. DreamUp es una organización sin ánimo de lucro creada por estudiantes de la
         universidad Icesi con el fin de proveer una nueva forma de recaudar fondos mediante las criptomonedas.
         Gracias a estas, cada una de las donaciones es trazable, haciendo que el proceso sea mucho más seguro y transparente.
@@ -64,13 +64,13 @@ const [expanded, setExpanded] = useState(false);
         aria-controls="panel3bh-content"
         id="panel3bh-header"
       >
-        <Typography variant='h6' sx={{ width: 'fit-content', flexShrink: 0 }}>
+        <Typography variant='h6' sx={{ width: 'fit-content', flexShrink: 0, fontFamily:"Poppins" }}>
         ¿Qué tipo de campañas se pueden crear en dreamUp? 
         </Typography>
 
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography sx={{fontFamily:"Poppins"}}>
         En DreamUp puedes crear campañas de todo tipo siempre y cuando
         cumplas con lo estipulado en nuestros términos y condiciones.
         Para ver los términos y condiciones haz click en el enlace.
@@ -83,10 +83,10 @@ const [expanded, setExpanded] = useState(false);
         aria-controls="panel4bh-content"
         id="panel4bh-header"
       >
-        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0 }}>¿Qué es una criptomoneda?</Typography>
+        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0, fontFamily:"Poppins" }}>¿Qué es una criptomoneda?</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography sx={{fontFamily:"Poppins"}}>
         Una criptomoneda es un activo digital que puedes usar como método de intercambio alrededor de todo el mundo,
         sin tener que recurrir a algún intermediario o entidad que tenga el control de ese dinero.
         Estas monedas son protegidas por códigos criptográficos (matemática avanzada) por lo que de ahí
@@ -100,10 +100,10 @@ const [expanded, setExpanded] = useState(false);
         aria-controls="panel5bh-content"
         id="panel5bh-header"
       >
-        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0 }}>¿Qué es blockchain?</Typography>
+        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0,fontFamily:"Poppins" }}>¿Qué es blockchain?</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography sx={{fontFamily:"Poppins"}}>
         La blockchain es una base de datos pública cuya información no se puede eliminar ni modificar,
         es decir que sólo puedes agregar información. Esta funciona por bloques que tienen una cantidad
         limitada de información que pueden almacenar, por lo que al llenar un bloque,
@@ -118,10 +118,10 @@ const [expanded, setExpanded] = useState(false);
         aria-controls="panel6bh-content"
         id="panel6bh-header"
       >
-        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0 }}>¿Qué es Celo y Celo dólar?</Typography>
+        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0, fontFamily:"Poppins" }}>¿Qué es Celo y Celo dólar?</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography sx={{fontFamily:"Poppins"}}>
         Celo es la blockchain que aloja el algoritmo que usamos para la creación y donación de las campañas de dreamUp.
         Al utilizar esta blockchain, cada una de nuestras
         donaciones debe realizarse en Celo dólar (CUSD), una criptomoneda
@@ -135,10 +135,10 @@ const [expanded, setExpanded] = useState(false);
         aria-controls="panel7bh-content"
         id="panel7bh-header"
       >
-        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0 }}>¿Qué es una wallet?</Typography>
+        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0,fontFamily:"Poppins" }}>¿Qué es una wallet?</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography sx={{fontFamily:"Poppins"}}>
         Una billetera o “wallet” es un software que te permite conectarte con la blockchain en la cual tienes tus criptomonedas.
         Este software te permite además realizar transacciones con tus criptomonedas como por ejemplo recibir o enviar a otra persona.
         La wallet predeterminada para la blockchain de Celo es Valora,
@@ -152,10 +152,10 @@ const [expanded, setExpanded] = useState(false);
         aria-controls="panel8bh-content"
         id="panel8bh-header"
       >
-        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0 }}>¿Qué es Moonpay?</Typography>
+        <Typography variant='h6' sx={{ width: '33%', flexShrink: 0, fontFamily:"Poppins" }}>¿Qué es Moonpay?</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography  sx={{fontFamily:"Poppins"}}>
         Para adquirir la criptomoneda Celo dólar deberás comprarla a través de alguna plataforma de compra y venta de criptomonedas. 
         Como la wallet predeterminada de Celo es Valora,
         te recomendamos que compres tus Celo dólar a través de Moonpay. En nuestros tutoriales 

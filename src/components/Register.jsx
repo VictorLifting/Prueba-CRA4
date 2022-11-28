@@ -13,6 +13,7 @@ import { Link as RouterLink} from "react-router-dom";
 //firebase
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Checkbox, FormControlLabel } from '@mui/material';
+import { useState } from 'react';
 
 
 // function Copyright(props) {
@@ -41,12 +42,14 @@ const theme = createTheme({
 
 export default function Register() {
 
+  const [errorFirebase, seterrorFirebase] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     if(data.get('password')!==data.get('passwordConfirm')){
-      console.log("contraseñas no son iguales")
+      console.log(" las contraseñas no son iguales");
+      seterrorFirebase("Las contraseñas no son iguales");
       return
     }
   
@@ -77,6 +80,7 @@ export default function Register() {
       // ..
       console.log(errorCode)
       console.log(errorMessage)
+      seterrorFirebase(errorMessage)
     });
 
   }
@@ -128,6 +132,18 @@ export default function Register() {
               autoComplete="name"
               autoFocus
             /> */}
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="name"
+              label="Nombre completo"
+              type="text"
+              id="name"
+              
+            />
+
             <TextField
               margin="normal"
               required
@@ -157,15 +173,18 @@ export default function Register() {
               type="password"
               id="passwordConfirm"
               autoComplete="current-password"
-            />     
+            />    
+
+            {errorFirebase ? <Typography sx={{fontFamily:"Poppins",color:"#ff0000" , fontSize:13, mb:1}}>{errorFirebase}</Typography> :" "}
+
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Aceptar términos y condiciones."
+              control={<Checkbox value="remember" color="primary"/>}
+              label={<Typography sx={{fontFamily:"Poppins", fontSize:13}} >Aceptar términos y condiciones.</Typography>} 
             />       
 
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Acepto la política de privacidad."
+              label={<Typography sx={{fontFamily:"Poppins", fontSize:13}}>Acepto la política de privacidad</Typography>} 
             />                                    
 
             <Button

@@ -95,8 +95,11 @@ const images = [
 
 export default function HelpCenter() {
   return (
-    <Container component="section" sx={{ mt: 8, mb: 4 }}>
-      <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
+    <Container component="section" sx={{ mt: 5, mb: 4 }}>
+    <Typography variant={"h5"} sx={{fontFamily:"Poppins", fontWeight:"600", color:"#C58ADE"}}> 
+      Centro de ayuda
+    </Typography>
+      <Box sx={{ mt: 5, display: 'flex', flexWrap: 'wrap' }}>
         {images.map((image) => (
           <ImageIconButton
             key={image.title}
@@ -137,6 +140,7 @@ export default function HelpCenter() {
                 variant="h6"
                 color="inherit"
                 className="imageTitle"
+                fontFamily="Poppins"
               >
                 {image.title}
                 <div className="imageMarked" />

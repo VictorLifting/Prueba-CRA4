@@ -10,7 +10,7 @@ export const MyCampains = () => {
    <Box sx={{p:12}}>
 
    
-   <Typography variant='h4' color='#C58ADE' >
+   <Typography variant='h4' color='#C58ADE' fontFamily="poppins" fontWeight="600" fontSize="2em" >
     Tus campañas
    </Typography>
    <Empty/>

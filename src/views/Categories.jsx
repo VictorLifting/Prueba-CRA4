@@ -6,6 +6,7 @@ import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
 import { Link as RouterLink} from "react-router-dom";
 import Link from '@mui/material/Link';
+import { fontWeight } from '@mui/system';
 
 const ImageBackdrop = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -55,7 +56,7 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
     transition: theme.transitions.create('opacity'),
   },
 }));
-
+ 
 const images = [
   {
     url: "./imgs/categories/educacion.png",
@@ -97,8 +98,13 @@ const images = [
 
 export default function Categories() {
   return (
-    <Container component="section" sx={{ mt: 8, mb: 4 }}>
-      <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
+    <Container component="section" sx={{ mt: 5, mb: 4 }}>
+      
+    <Typography variant={"h5"} sx={{fontFamily:"Poppins", fontWeight:"600", color:"#C58ADE"}}> 
+      Categorias
+    </Typography>
+
+      <Box sx={{ mt: 5, display: 'flex', flexWrap: 'wrap' }}>
         {images.map((image) => (
           
           <ImageIconButton

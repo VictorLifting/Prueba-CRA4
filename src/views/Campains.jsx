@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import db from '../firebase/firebasConfig';
 import { collection, getDocs} from "firebase/firestore";
 import { useFetchCampains } from '../utils/useFetchCampains';
+import { Typography } from '@mui/material';
 
 
 
@@ -104,8 +105,12 @@ export const Campains = () => {
 
   return (
 
-    <Container component="section" sx={{ mt: 8, mb: 10}}>
-    <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
+    <Container component="section" sx={{ mt: 5, mb: 10}}>
+    <Typography variant={"h5"} sx={{fontFamily:"Poppins", fontWeight:"600", color:"#C58ADE"}}> 
+      Categoria...
+    </Typography>
+
+    <Box sx={{ mt: 0, display: 'flex', flexWrap: 'wrap' }}>
     {/* {campains.map((campain) => (
 
           <Link component={RouterLink} to={`/infoCampain`} underline="none" color="inherit">
@@ -116,7 +121,7 @@ export const Campains = () => {
     ))} */}
 
     {
-        isLoading && (<h2> Cargando... </h2>)
+        isLoading && (<h3> Cargando... </h3>)
 
       }
 
