@@ -15,11 +15,16 @@ import { useParams } from 'react-router-dom';
 //firebase
 import db from '../firebase/firebasConfig';
 import { collection, getDoc, doc } from 'firebase/firestore';
-import Typography from '../components/Typography';
+//firebase auth
+
+import { getAuth } from "firebase/auth";
+
 
 //loader
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import { PropaneSharp } from '@mui/icons-material';
+import Typography from '../components/Typography';
 
 
 
@@ -50,7 +55,7 @@ const style = {
 
 
 
-export const InfoCampain = () => {
+export const InfoCampain = (props) => {
 
 
   const theme = createTheme({
@@ -69,9 +74,12 @@ export const InfoCampain = () => {
   }
   });
 
+  //uid de usuario
+//const [userUid, setuserUid] = useState(null);
+
   
   //contract Fundraising
-  const contractDreamUp ='0x40d4dED645DdbcCFF56881839233ebF383B69713';
+  const contractDreamUp ='0x99424560D568e860023CDc00025267ecf95466C1';
   //loaders
   const [openLoad, setOpenLoad] = useState(false);
 
@@ -112,22 +120,52 @@ export const InfoCampain = () => {
       
     }
 
+
     obtenerDatos();
+   // GetUidUser();
+   //obtenerAuth();
+  
   
   }, [])
+
+
+  
+    //autenticación
+
+    // const obtenerAuth = async () =>{
+
+    //   const auth =  getAuth();
+
+    //   setuserUid(auth.currentUser)
+    //   console.log(userUid)
+      
+    // }
+
 
 
   //input valor
   const [inputValue, setInputValue] = useState('')
 
-  //fondos recolectados 
+  //fondos recolectados en porcentaje
   const [collectedFunds, setcollectedFunds] = useState(0)
+
+    //fondos recolectados en cusd
+    const [collectedCUSD, setcollectedCUSD] = useState(0)
 
    const onInputChange =(event)=>{
     let inputValue = event.target.value;
      setInputValue(inputValue);
       }
 
+  //input valor Wallet
+  const [inputValueWallet, setinputValueWallet] = useState('')
+
+   const onInputWalletChange =(event)=>{
+    let inputValueWallet = event.target.value;
+    setinputValueWallet(inputValueWallet);
+      }
+
+      
 
 
   //modal conectar
@@ -158,6 +196,23 @@ export const InfoCampain = () => {
   handleOpen2()
 }
 
+
+//Obtener id del usuario(Admin)
+
+const GetUidUser =  () => {
+
+  
+
+  props.usuario ? 
+  
+    console.log("Existe"):  console.log(" NO Existe");
+  
+ 
+  
+
+}
+
+//aprobar
 
 const ApproveCUSD = async ()=>{
 
@@ -197,6 +252,7 @@ const DataCampain = async ( projectIndex) =>{
    let fundraisingGoal = await data.fundraisingGoal;
    let fundsConverted = (funds*100)/fundraisingGoal;
    setcollectedFunds(fundsConverted);
+   setcollectedCUSD((funds)/1000000000000000000)
   console.log("Fondos recolectados: "+ funds +" Meta: " +fundraisingGoal+ "conversion: "+fundsConverted+"%");
 }
 
@@ -226,8 +282,23 @@ const SendToContract = async () => {
             // //          //console.log(kit)
             handleCloseLoad()
             handleOpen2()
+            DataCampain(datosCampain.idContract)
     }
 
+
+
+    //withDraw Admin
+
+    const WithdrawFromContract = async () => {
+
+      const kit = await getConnectedKit();
+      let contract = new kit.connection.web3.eth.Contract(contractABI, contractDreamUp) 
+      let txObject = await contract.methods.withdrawDeposit(inputValueWallet,datosCampain.idContract);
+      let tx = await kit2.sendTransactionObject(txObject, { from: address });
+      let receipt = await tx.waitReceipt();
+      console.log(receipt);
+
+    }
 
   return (
 
@@ -334,7 +405,7 @@ const SendToContract = async () => {
 
         </Box>
 
-      <p>Recaudado: $0 / ${datosCampain.meta} Cusd</p>
+      <p>Recaudado: ${collectedCUSD} / ${datosCampain.meta} Cusd</p>
         </Box>
 
         <Box>
@@ -415,6 +486,32 @@ const SendToContract = async () => {
 
         
       </Box>
+
+      {/* Withdraw */}
+
+      {address == "0xe73d1af492f60592182ca8279f700adc4cca89d5" ? (
+        <FormControl fullWidth sx={{ m: 1 }}>
+          <InputLabel htmlFor="outlined-adornment-amount">Ingesa la wallet para retirar el CUSD</InputLabel>
+          <OutlinedInput
+            value={ inputValueWallet }
+            onChange={ onInputWalletChange }
+            type="text"
+            id="outlined-adornment-amount"
+            //value={values.amount}
+           // onChange={handleChange('amount')}
+          //startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            label="Wallet a donde se envía"
+          />
+          <Button onClick={WithdrawFromContract} type="button"
+             // <Button onClick={handleOpen2} type="button"
+              variant="contained" 
+              color="primary"
+              sx={{ mt: 3, mb: 2, width:"48%" }}>Retirar</Button>
+        </FormControl>)
+        : (
+          " ")}
+
+        {/* end of Withdraw */}
 
 
             </FormGroup>

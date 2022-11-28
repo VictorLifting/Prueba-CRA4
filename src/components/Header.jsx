@@ -24,7 +24,7 @@ export const Header = (props) => {
     
   });};
 
-  console.log( "logeado desde el header con: ", props.usuario);
+  //console.log( "logeado desde el header con: ", auth.currentUser);
  
 
   return (

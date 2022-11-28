@@ -13,6 +13,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink} from "react-router-dom";
 //firebase
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from 'react';
+
 
 // function Copyright(props) {
 //   return (
@@ -40,6 +42,9 @@ const theme = createTheme({
 
 export default function SignIn(props) {
 
+  const [errorFirebase, seterrorFirebase] = useState(null);
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -52,6 +57,7 @@ export default function SignIn(props) {
 
 
   const auth = getAuth();
+
 
   const iniciarSesion = (correo, password) => {
 
@@ -70,6 +76,7 @@ export default function SignIn(props) {
       // ..
       console.log(errorCode)
       console.log(errorMessage)
+      seterrorFirebase(errorMessage)
     });
 
   }
@@ -120,6 +127,9 @@ export default function SignIn(props) {
               id="password"
               autoComplete="current-password"
             />
+
+            {errorFirebase ? <Typography sx={{fontFamily:"Poppins",color:"#ff0000" , fontSize:13, mb:1}}>{errorFirebase}</Typography> :" "}
+
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Recordarme"
