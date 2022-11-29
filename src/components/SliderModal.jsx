@@ -1,5 +1,7 @@
 import { Box, Typography, Button } from '@mui/material';
 import React from 'react'
+import Link from '@mui/material/Link';
+import { Link as RouterLink} from "react-router-dom";
 
 export const SliderModal = ({ imagenes }) => {
 
@@ -59,20 +61,23 @@ export const SliderModal = ({ imagenes }) => {
                         {imagenActual === cantidad - 1 ? 
                         
                             <Box sx={{mt:3}}>
-
+                            <Link component={RouterLink} to="/howtodonate" underline="none" color="inherit" marginRight={5} target={"_blank"}>
                             <Button
                             color= "primary"
                             variant="outlined"
                             sx={{ minWidth: 200,mr:2 }}>
                                Ver paso a paso
                              </Button>
-                                
+                             </Link>
+
+                             <Link component={RouterLink} to="/categories" underline="none" color="inherit" marginRight={5}>
                             <Button
                             color= "primary"
                             variant="contained"
                             sx={{ minWidth: 200 }}>
                                Listo
                              </Button>
+                             </Link>
                              </Box>
                          : ""}
                         </Box>

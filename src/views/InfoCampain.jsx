@@ -345,7 +345,7 @@ const SendToContract = async () => {
 
             <p> <strong>Creado por: </strong> {datosCampain.by} </p> 
 
-            <Link href="https://explorer.celo.org/mainnet/address/0xd0B352bF3c007324A841D6226e447AC391877076/transactions"
+            <Link href="https://explorer.celo.org/mainnet/address/0x99424560D568e860023CDc00025267ecf95466C1/transactions"
             underline="none" 
             color="inherit"
             target={"_blank"}>
