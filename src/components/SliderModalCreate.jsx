@@ -3,7 +3,7 @@ import React from 'react'
 import Link from '@mui/material/Link';
 import { Link as RouterLink} from "react-router-dom";
 
-export const SliderModal = ({ imagenes }) => {
+export const SliderModalCreate = ({ imagenes }) => {
 
     // Variables y Estados
 	const [imagenActual, setImagenActual] = React.useState(0);
@@ -41,13 +41,18 @@ export const SliderModal = ({ imagenes }) => {
                         
 
                         <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center',justifyContent: 'center' }}>
+
                        
+
                         <Button 
                         color="secondary"
                         variant="outlined"
                         onClick={anteriorImagen}>
                         ←
                         </Button>
+
+                 
+
                         <img key={index} src={imagen.img} alt="imagen" />
                         
                         <Button
@@ -61,51 +66,18 @@ export const SliderModal = ({ imagenes }) => {
                         {imagenActual === cantidad - 1 ? 
                         
                             <Box sx={{mt:3}}>
-                            <Link component={RouterLink} to="/howtodonate" underline="none" color="inherit" marginRight={5} target={"_blank"}>
-                            <Button
-                            color= "primary"
-                            variant="outlined"
-                            sx={{ minWidth: 200,mr:2 }}>
-                               Ver paso a paso
-                             </Button>
-                             </Link>
 
-                             <Link component={RouterLink} to="/categories" underline="none" color="inherit" marginRight={5}>
+
+                            
                             <Button
                             color= "primary"
                             variant="contained"
                             sx={{ minWidth: 200 }}>
-                               Listo
+                               Listo!
                              </Button>
-                             </Link>
+                             
                              </Box>
                          : ""}
-
-                        {imagenActual === cantidad - 2 ? 
-                        <Box sx={{mt:3}}>
-                            <Link component={RouterLink} to="/howtovalora" underline="none" color="inherit" marginRight={0} target={"_blank"}>
-                            <Button
-                            color= "primary"
-                            variant="outlined"
-                            sx={{ minWidth: 200,mr:2 }}>
-                               Ver paso a paso
-                             </Button>
-                             </Link>
-                        </Box>
-                        :"" } 
-
-                        {imagenActual === cantidad - 3 ? 
-                        <Box sx={{mt:3}}>
-                            <Link component={RouterLink} to="/howtoaccvalora" underline="none" color="inherit" marginRight={0} target={"_blank"}>
-                            <Button
-                            color= "primary"
-                            variant="outlined"
-                            sx={{ minWidth: 200,mr:2 }}>
-                               Ver paso a paso
-                             </Button>
-                             </Link>
-                        </Box>
-                        :"" } 
                         </Box>
 
                       

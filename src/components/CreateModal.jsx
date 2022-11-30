@@ -3,8 +3,8 @@ import { ThemeProvider } from "@mui/material";
 import Button from '@mui/material/Button';
 import { Link as RouterLink} from "react-router-dom";
 import Link from '@mui/material/Link';
-import { SliderModal } from "./SliderModal";
 import Typography from "./Typography";
+import { SliderModalCreate } from "./SliderModalCreate";
 
 //import theme from "../styles";
 //import qrc from "../imgs/Qr/image-qr-code.png";
@@ -56,7 +56,7 @@ export const  CreateModal = ({ onFin }) => {
             </Box>
 
             <Box >
-            <SliderModal imagenes={mockImagenes}/>
+            <SliderModalCreate imagenes={mockImagenes}/>
 
             </Box>
 
