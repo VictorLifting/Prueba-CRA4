@@ -14,6 +14,7 @@ import { CreateModal } from "../components/CreateModal";
 import db from '../firebase/firebasConfig';
 import { collection, getDocs, addDoc } from "firebase/firestore";
 import { EmptyCreate } from "../components/EmptyCreate";
+import { SendCreateModal } from "../components/SendCreateModal";
 
 
 const categories = [
@@ -64,8 +65,15 @@ export const Create = (props) => {
         //modal Donar  
       const [open, setOpen] = useState(true);
 
+         //modal Donar 
+
+      const [open2, setOpen2] = useState(false);
+
       const handleOpen = () => setOpen(true);
       const handleClose = () => setOpen(false);
+
+      const handleOpen2 = () => setOpen2(true);
+      const handleClose2 = () => setOpen2(false);
 
   
     const handleChange = (event) => {
@@ -173,6 +181,7 @@ const addCampain = async(name, description,category,goal,userId)=>{
         </FormControl>
         <FormControlLabel control={<Checkbox defaultUnChecked />} label="Acepto términos y condiciones" />
         <Button
+              onClick={handleOpen2}
               type="submit"
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -208,6 +217,19 @@ const addCampain = async(name, description,category,goal,userId)=>{
             <CreateModal/>
             </Box>  
             </Modal>
+
+            <Modal
+                open={open2}
+                onClose={handleClose2}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            > 
+            <Box sx={style}>
+
+            <SendCreateModal/>
+            </Box>  
+            </Modal>
+
 
         
     </div>
