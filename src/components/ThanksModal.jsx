@@ -19,12 +19,12 @@ export const  ThanksModal = ({ onFin }) => {
           alignItems: "center",
           bgcolor: "background.backWhite",
           borderRadius: "1rem",
-          p: "5rem",
+          p: "4rem",
           textAlign: "center",
           boxShadow: "rgb(162, 179, 198) 0px 24px 42px -12px;",
         }}
       >
-        <Box component="h2">Muchas Gracias!!
+        <Box component="h2" sx={{color:"#C58ADE", mb:2}}>Muchas Gracias!!
           {/* {onFin === qrc
             ? "Improve your front-end skills by building projects"
             : "This is the resulting QR Code"} */}
@@ -44,7 +44,12 @@ export const  ThanksModal = ({ onFin }) => {
             ? "Scan the QR code to visit Frontend Mentor and take your coding skills to the next level"
             : "Scan the QR Code to use what you entered!"} */}
         </Box>
-
+        <Button
+                            color= "primary"
+                            variant="contained"
+                            sx={{ minWidth: 200, mt:2 }}>
+                               Listo!
+        </Button>
     
       </Box>
 
