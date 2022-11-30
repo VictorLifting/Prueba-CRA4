@@ -89,7 +89,7 @@ const images = [
     to: "Campains",
   },
   {
-    url: "./imgs/categories/social.png"  ,
+    url: "./imgs/categories/socials.png"  ,
     title: 'Social',
     width: '30%',
     to: "Campains",
