@@ -130,7 +130,7 @@ const agregarDatos = async()=>{
     usuario ? <Home/> : <SignIn setUsuario={setUsuario} /> 
   }/>
   <Route path="/categories" element={<Categories/>}/>
-  <Route path="/campains" element={<Campains/>}/>
+  <Route path="/campains/:category" element={<Campains/>}/>
   <Route path="/create" element={<Create usuario={usuario}/>}/>
   <Route path="/instructions" element={<Instructions/>}/>
   <Route path="/infoCampain/:id" element={<InfoCampain usuario={usuario}/>}/>

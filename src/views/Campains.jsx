@@ -9,7 +9,8 @@ import db from '../firebase/firebasConfig';
 import { collection, getDocs} from "firebase/firestore";
 import { useFetchCampains } from '../utils/useFetchCampains';
 import { Typography } from '@mui/material';
-
+//react router
+import { useParams } from 'react-router-dom';
 
 
 const campains = [
@@ -48,6 +49,8 @@ const campains = [
 
 export const Campains = () => {
 
+     //router
+     const {category} = useParams();
 
   const { images, isLoading } = useFetchCampains ( );
 
@@ -107,7 +110,7 @@ export const Campains = () => {
 
     <Container component="section" sx={{ mt: 5, mb: 10}}>
     <Typography variant={"h5"} sx={{fontFamily:"Poppins", fontWeight:"600", color:"#C58ADE"}}> 
-      Categoria...
+    {category}
     </Typography>
 
     <Box sx={{ mt: 0, display: 'flex', flexWrap: 'wrap', }}>

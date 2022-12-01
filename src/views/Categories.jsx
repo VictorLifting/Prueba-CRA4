@@ -116,7 +116,7 @@ export default function Categories() {
               
             }}
           >
-            <Link component={RouterLink} to={`/${image.to}`} underline="none" color="inherit">
+            <Link component={RouterLink} to={`/${image.to}/${image.title}`} underline="none" color="inherit">
             <Box
               sx={{
                 position: 'absolute',
