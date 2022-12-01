@@ -90,13 +90,13 @@ export default function Footer() {
             </Typography>
             <Box component="ul" sx={{ m: 0, listStyle: 'none', p: 0 }}>
               <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="#" underline="none" color="inherit">Sobre dreamUp</Link>
+                <Link href="/about" target={'_blank'} underline="none" color="inherit">Sobre dreamUp</Link>
               </Box>
               <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="#" underline="none" color="inherit">Cómo donar</Link>
+                <Link href="/howtodonate"  target={'_blank'} underline="none" color="inherit">Cómo donar</Link>
               </Box>
               <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="#" underline="none" color="inherit">Nuestro Equipo</Link>
+                <Link href="/about" target={'_blank'}  underline="none" color="inherit">Nuestro Equipo</Link>
               </Box>
             </Box>
           </Grid>
@@ -106,10 +106,10 @@ export default function Footer() {
             </Typography>
             <Box component="ul" sx={{ m: 0, listStyle: 'none', p: 0 }}>
               <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="#" underline="none" color="inherit">Crear una campaña</Link>
+                <Link href="/create" underline="none"  target={'_blank'} color="inherit">Crear una campaña</Link>
               </Box>
               <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="#" underline="none" color="inherit">Centro de ayuda</Link>
+                <Link href="/helpcenter" underline="none" target={'_blank'} color="inherit">Centro de ayuda</Link>
               </Box>
               <Box component="li" sx={{ py: 0.5 }}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/prueba-98e9d.appspot.com/o/terminos%20y%20condiciones%20DreamUp.pdf?alt=media&token=aba9db43-d855-4ede-910e-0d45aa1566c6"

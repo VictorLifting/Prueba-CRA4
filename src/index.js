@@ -13,9 +13,9 @@ root.render(
   <BrowserRouter>
     <CeloProvider
       dapp={{
-        name: 'My awesome dApp',
-        description: 'My awesome description',
-        url: 'https://example.com',
+        name: 'DreamUp',
+        description: 'Descentralizad platform',
+        url: 'https://dreamup.com.co',
       }}
       connectModal={{
         // This options changes the title of the modal and can be either a string or a react element
