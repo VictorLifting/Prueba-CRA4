@@ -12,6 +12,7 @@ import { Typography } from '@mui/material';
 //react router
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { EmptyCategory } from '../components/EmptyCategory';
 
 
 const campains = [
@@ -59,6 +60,8 @@ export const Campains = () => {
 
   const [campains, setCampains] = useState([]);
 
+  let prueba= [];
+
   // let imagesCategory = 
   
   for (let index = 0; index < images.length; index++) {
@@ -69,11 +72,17 @@ export const Campains = () => {
    if(images[index].Category == category){
 
    // images[index] = [...imagesCategory];
-   console.log("Exiiste")
+   //console.log("Exiiste")
 
-   //setCampains(images[index].push)
+   //setCampains([images[index]]);
+
+   
+
+   prueba.push(images[index])
+
+   console.log(prueba)
   
-   } else(console.log("no eiste"))
+   } else(console.log("no existe"))
     
   }
 
@@ -149,7 +158,7 @@ export const Campains = () => {
 
       }
 
-      {images.map((images)=>
+      {prueba.length > 0 ? prueba.map((images)=>
             //<GiftItem key={images.id} 
             // title={images.title} url={images.url}
             //{...images}
@@ -159,7 +168,7 @@ export const Campains = () => {
           </Link>
             
             
-          )}
+          ) : <EmptyCategory/>}
   
     
     </Box>

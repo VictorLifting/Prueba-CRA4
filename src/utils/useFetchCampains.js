@@ -29,10 +29,10 @@ export const useFetchCampains = () => {
         datos.forEach(element => {
           //console.log(element.data().name);  
             //console.log(element.id)
-         const date= element.data().Date;
+         const date= element.data().date;
          const goal= element.data().meta;
          const category = element.data().category;
-         const owner =element.data().By;
+         const owner =element.data().by;
          const title= element.data().name;
          const id = element.id;
          const img = element.data().img;
