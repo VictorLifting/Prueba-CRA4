@@ -110,7 +110,7 @@ export const Campains = () => {
       Categoria...
     </Typography>
 
-    <Box sx={{ mt: 0, display: 'flex', flexWrap: 'wrap' }}>
+    <Box sx={{ mt: 0, display: 'flex', flexWrap: 'wrap', }}>
     {/* {campains.map((campain) => (
 
           <Link component={RouterLink} to={`/infoCampain`} underline="none" color="inherit">

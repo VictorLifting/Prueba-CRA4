@@ -58,6 +58,71 @@ export const About = () => {
 
         </Box>
 
+        <Box sx={{
+           display:"flex", justifyContent:"center", justifyItems:"center"
+        }}>
+
+        <Box sx={{display:"flex", justifyContent:"center", textAlign:"center", flexDirection:"column" , mt :15}}>
+
+        <Typography variant={'h6'} sx={{fontFamily:"Poppins", fontWeight:"600", mb:2}}>
+            “¿Cómo se cambia el mundo? Cambia la historia”.
+        </Typography>
+        
+        <Typography>
+          
+        - Charles Eisenstein.
+        </Typography>
+
+        </Box>
+        </Box>
+
+
+        <Box sx={{mt:20}}>
+        <Typography sx={{fontFamily:"Poppins", fontWeight: " 600" }}>
+        Nuestro equipo
+        </Typography>
+
+
+        <Box sx={{display:"flex", justifyContent:"center", mt:5}}>
+
+
+          <Box sx={{textAlign:"center", mr:10}}>
+
+          <img src="./imgs/founders/nicolas.png" alt= ""/>
+          <Typography sx={{fontFamily:"Poppins", fontWeight:"600"}}>
+          Nicolás Medina 
+          </Typography>
+
+          <Typography  sx={{fontFamily:"Poppins",  }}>
+          Cofundador - UX/UI designer 
+          </Typography>
+          </Box>
+
+          <Box>
+            
+          </Box>
+
+            <Box sx={{textAlign:"center"}}>
+
+          <img src="./imgs/founders/victor.png" alt= ""/>
+          <Typography sx={{fontFamily:"Poppins", fontWeight:"600"}}>
+          Victor Espejo
+          </Typography>
+
+          <Typography  sx={{fontFamily:"Poppins",  }}>
+          Cofundador - Frontend & <p> </p>  Blockchain developer.
+          </Typography>
+          </Box>
+
+          <Box>
+            
+          </Box>
+
+
+        </Box>
+
+        </Box>
+
     </Box>
 
   )

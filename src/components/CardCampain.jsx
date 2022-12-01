@@ -8,11 +8,11 @@ export const CardCampain = (props) => {
 
     <Box sx={{ 
         mt: 8,
-        height:420,
-        width: 280,
+        height:430,
+        width: 320,
         borderRadius:4,
         boxShadow:2,
-        marginLeft:9,
+        marginLeft:3,
         
         }}>
 
@@ -25,7 +25,7 @@ export const CardCampain = (props) => {
         backgroundSize: 'cover',
         backgroundPosition: 'center 40%',
         backgroundImage: `url(${props.data.img})`,
-        borderRadius:4,
+        borderRadius:"6% 6% 0% 0%",
         }}>
     </Box>
 
