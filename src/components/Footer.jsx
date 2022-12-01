@@ -112,7 +112,8 @@ export default function Footer() {
                 <Link href="#" underline="none" color="inherit">Centro de ayuda</Link>
               </Box>
               <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="#" underline="none" color="inherit">Ajuste de Cookies</Link>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/prueba-98e9d.appspot.com/o/terminos%20y%20condiciones%20DreamUp.pdf?alt=media&token=aba9db43-d855-4ede-910e-0d45aa1566c6"
+                 target={'_blank'} underline="none" color="inherit">Términos y condiciones y política de privacidad</Link>
               </Box>
             </Box>
             {/* <TextField
