@@ -36,6 +36,7 @@ export const useFetchCampains = () => {
          const title= element.data().name;
          const id = element.id;
          const img = element.data().img;
+         const funds = element.data().funds;
   
           const Campain={
             Date: date,
@@ -45,6 +46,7 @@ export const useFetchCampains = () => {
             Name: title,
             id: id,
             img: img,
+            funds:funds,
               
           }
 

@@ -11,6 +11,7 @@ import { useFetchCampains } from '../utils/useFetchCampains';
 import { Typography } from '@mui/material';
 //react router
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 
 const campains = [
@@ -55,6 +56,26 @@ export const Campains = () => {
   const { images, isLoading } = useFetchCampains ( );
 
   console.log(images)
+
+  const [campains, setCampains] = useState([]);
+
+  // let imagesCategory = 
+  
+  for (let index = 0; index < images.length; index++) {
+
+    
+   // let imagesCategory=[];
+
+   if(images[index].Category == category){
+
+   // images[index] = [...imagesCategory];
+   console.log("Exiiste")
+
+   //setCampains(images[index].push)
+  
+   } else(console.log("no eiste"))
+    
+  }
 
 //   useEffect(() => {
 

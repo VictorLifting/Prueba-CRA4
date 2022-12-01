@@ -179,13 +179,17 @@ export default function Register() {
 
             <FormControlLabel
               control={<Checkbox value="remember" color="primary"/>}
-              label={<Typography sx={{fontFamily:"Poppins", fontSize:13}} >Aceptar términos y condiciones.</Typography>} 
+              label={<Typography sx={{fontFamily:"Poppins", fontSize:13}} >Aceptar <p></p>
+              {/* <Link to="https://firebasestorage.googleapis.com/v0/b/prueba-98e9d.appspot.com/o/terminos%20y%20condiciones%20DreamUp.pdf?alt=media&token=aba9db43-d855-4ede-910e-0d45aa1566c6"
+              variant="body2" sx={{fontFamily:"Poppins"}}>
+                términos y condiciones y política de privacidad.
+                </Link>  */}
+                <a target="_blank" href="https://firebasestorage.googleapis.com/v0/b/prueba-98e9d.appspot.com/o/terminos%20y%20condiciones%20DreamUp.pdf?alt=media&token=aba9db43-d855-4ede-910e-0d45aa1566c6">
+                términos y condiciones y política de privacidad.
+                </a>
+                </Typography>} 
             />       
-
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label={<Typography sx={{fontFamily:"Poppins", fontSize:13}}>Acepto la política de privacidad</Typography>} 
-            />                                    
+                                 
 
             <Button
               type="submit"

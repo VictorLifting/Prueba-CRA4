@@ -65,11 +65,10 @@ export const CardCampain = (props) => {
                 <Box sx={{
                 backgroundColor:"#C58ADE",
                 height:15,
-                width:"1%",
+                width:(props.data.funds*100/props.data.Goal),
                 position:'relative'
               }}>
           </Box>
-
 
          
 
@@ -79,8 +78,8 @@ export const CardCampain = (props) => {
                 variant="inherit"
                 color="inherit"
                 className="imageTitle"
-              >
-                 Recaudado: $0/{props.data.Goal}
+               sx={{fontWeight:"600"}}>
+                 Recaudado: ${props.data.funds}/{props.data.Goal} CUSD
                 
               </Typography> 
 
