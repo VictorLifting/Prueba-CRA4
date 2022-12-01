@@ -362,7 +362,7 @@ const SendToContract = async () => {
             </Link> 
 
             </Box>
-            <p>Creada el 20 de junio de 2022</p>
+            <p>Creada el 13 de Noviembre de 2022</p>
 
         </Box>
         <Box sx={{

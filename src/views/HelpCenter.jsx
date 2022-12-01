@@ -134,7 +134,7 @@ export default function HelpCenter() {
             >
             <img src={image.url} alt="" />
             </Box>
-            </Link>   
+              
               <Typography
                 component="h3"
                 variant="h6"
@@ -145,7 +145,7 @@ export default function HelpCenter() {
                 {image.title}
                 <div className="imageMarked" />
               </Typography>
-         
+              </Link> 
           </ImageIconButton>
        
         ))}

@@ -22,7 +22,8 @@ export const EmptyCategory = () => {
    <Box sx={{
     display:'flex',
     flexDirection:'column',
-    alignItems:'center'
+    alignItems:'center',
+    marginLeft:20
     }}>
 
 
